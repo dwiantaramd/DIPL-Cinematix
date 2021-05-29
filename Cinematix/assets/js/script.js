@@ -53,12 +53,44 @@ $(document).ready(function () {
             method: 'post',
             dataType: 'json',
             success: function (data) {
-                $('#idTeater').val(data.idFilm);
-                $('#NamaTeater').val(data.JudulFilm);
+                $('#idTeater').val(data.idTeater);
+                $('#NamaTeater').val(data.NamaTeater);
                 $('#idlama').val(data.idTeater);
+                console.log(data);
             }
         });
     });
 
+    $('.addStudiobtn').on('click', function () {
+        $('#LabelstudioModal').html('Form Tambah Studio');
+        $('.footer-studio button[type=submit]').html('Tambah');
+        $('#idStudio').val("");
+        $('#NomorStudio').val("");
+        $('#TipeStudio').val("");
+        $('#StudioForm').attr('action', 'http://localhost/Cinematix/Studio/addStudio');
+    });
+
+    $('.EditStudiobtn').on('click', function () {
+        $('#LabelstudioModal').html('Form Edit Studio');
+        $('.footer-studio button[type=submit]').html('Update');
+        $('#StudioForm').attr('action', 'http://localhost/Cinematix/Studio/editStudio');
+
+        const idStudio = $(this).data('id');
+
+        $.ajax({
+            url: 'http://localhost/Cinematix/Studio/getEdit',
+            data: { idStudio: idStudio },
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                $('#idStudio').val(data.idStudio);
+                $('#NomorStudio').val(data.NomorStudio);
+                $('#TipeStudio').val(data.TipeStudio);
+                $('#NamaTeater').val(data.idTeater);
+                $('#idlama').val(data.idStudio);
+                console.log(data);
+            }
+        });
+    });
 
 });
