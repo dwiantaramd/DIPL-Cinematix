@@ -30,4 +30,5 @@ class Teater_Model extends CI_model {
         $this->db->delete('teater');
     }
 
+	
 }
