@@ -93,4 +93,44 @@ $(document).ready(function () {
         });
     });
 
+    $('.addJadwalTayangbtn').on('click', function () {
+        $('#LabeljadwaltayangModal').html('Form Tambah Jadwal Tayang');
+        $('.footer-jadwaltayang button[type=submit]').html('Tambah');
+        $('#idJadwalTayang').val("");
+        $('#JudulFilm').val("");
+        $('#NamaTeater').val("");
+        $('#NomorStudio').val("");
+        $('#TglTayang').val("");
+        $('#WaktuMulai').val("");
+        $('#WaktuSelesai').val("");
+        $('#Harga').val("");
+        $('#JadwalTayangForm').attr('action', 'http://localhost/Cinematix/JadwalTayang/addJadwalTayang');
+    });
+
+    $('.EditJadwalTayangbtn').on('click', function () {
+        $('#LabeljadwaltayangModal').html('Form Edit Jadwal Tayang');
+        $('.footer-jadwaltayang button[type=submit]').html('Update');
+        $('#JadwalTayangForm').attr('action', 'http://localhost/Cinematix/JadwalTayang/editJadwalTayang');
+
+        const idJadwalTayang = $(this).data('id');
+
+        $.ajax({
+            url: 'http://localhost/Cinematix/JadwalTayang/getJadwalTayangDetails',
+            data: { idJadwalTayang: idJadwalTayang },
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                $('#idJadwalTayang').val(data.idJadwalTayang);
+                $('#JudulFilm').val(data.idFilm);
+                $('#NamaTeater').val(data.idTeater);
+                $('#NomorStudio').val(data.nostudio);
+                $('#TglTayang').val(data.TglTayang);
+                $('#WaktuMulai').val(data.WaktuMulai);
+                $('#WaktuSelesai').val(data.WaktuSelesai);
+                $('#Harga').val(data.Harga);
+                $('#idlama').val(data.idJadwalTayang);
+                console.log(data);
+            }
+        });
+    });
 });

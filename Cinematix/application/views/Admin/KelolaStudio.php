@@ -30,7 +30,7 @@
                         <th>idStudio</th>
                         <th>NomorStudio</th>
                         <th>TipeStudio</th>
-                        <th>idTeater</th>
+                        <th>Teater</th>
                         <th width="90px">Aksi</th>
                     </tr>
                 </thead>
@@ -40,7 +40,7 @@
                         <td><?= $st['idStudio']; ?></td>
                         <td><?= $st['NomorStudio']; ?></td>
                         <td><?= $st['TipeStudio']; ?></td>
-                        <td><?= $st['idTeater']; ?></td>
+                        <td><?= $st['namateater']; ?></td>
                         <td>
                             <a href="#" class="btn btn-secondary btn-sm EditStudiobtn" data-toggle="modal" data-target="#studioModal" data-id="<?= $st['idStudio']; ?>">
                                 <span class="text">Edit</span>
