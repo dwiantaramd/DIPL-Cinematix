@@ -5,7 +5,7 @@ class Customer extends CI_Controller
 {
     public function index()
     {
-        $data['judul'] = 'Now Playing';
+        $data['judul'] = 'Dashboard';
         $this->load->view('templates/header_customer', $data);
         $this->load->view('Customer/Home');
         $this->load->view('templates/footer_customer');
