@@ -7,7 +7,7 @@ class Customer extends CI_Controller
     {
         $data['judul'] = 'Dashboard';
         $this->load->view('templates/header_customer', $data);
-        $this->load->view('Customer/Home');
-        $this->load->view('templates/footer_customer');
+        //$this->load->view('Customer/Home');
+        //$this->load->view('templates/footer_customer');
     }
 }
