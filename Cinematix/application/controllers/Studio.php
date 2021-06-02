@@ -86,4 +86,10 @@ class Studio extends CI_Controller {
             redirect('Studio');
         }
     }
+
+    public function delStudio($id){
+        $this->Studio_Model->deleteStudio($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Studio berhasil diHapus</div>');
+        redirect('Studio');
+    }
 }

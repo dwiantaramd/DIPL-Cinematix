@@ -94,6 +94,11 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Kelola Film</span>
                 </a>
+                <a class="nav-link collapsed" href="<?= base_url('Kursi'); ?>"  data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Kelola Kursi</span>
+                </a>
                 <a class="nav-link collapsed" href="<?= base_url('Pemesanan'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>

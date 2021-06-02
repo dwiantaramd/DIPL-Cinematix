@@ -27,12 +27,9 @@ class Teater extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $this->index();
         }else {
-            $idTeater       = $this->input->post('idTeater');
-            $NamaTeater    = $this->input->post('NamaTeater');
-    
             $data = [
-                'idTeater' => $idTeater,  
-                'NamaTeater' => $NamaTeater,
+                'idTeater' => $this->input->post('idTeater'),
+                'NamaTeater' => $this->input->post('NamaTeater'),
             ];
             $this->Teater_Model->insertTeater($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Teater berhasil di tambahkan</div>');
@@ -43,7 +40,6 @@ class Teater extends CI_Controller {
     public function getEdit()
     {
         echo json_encode($this->Teater_Model->getTeaterbyId($_POST['idTeater']));
-        
     }
 
     public function editTeater()
@@ -51,17 +47,13 @@ class Teater extends CI_Controller {
         $this->form_validation->set_rules('idTeater', 'idTeater', 'required|trim');
         $this->form_validation->set_rules('NamaTeater', 'NamaTeater', 'required');
 
-
         if ($this->form_validation->run()==false){
             $this->index();
         }else{
-            $idTeater         = $this->input->post('idTeater');
-            $NamaTeater      = $this->input->post('NamaTeater');
             $idlama         = $this->input->post('idlama');
-    
             $data = [
-                'idTeater' => $idTeater,
-                'NamaTeater' => $NamaTeater,
+                'idTeater' => $this->input->post('idTeater'),
+                'NamaTeater' => $this->input->post('NamaTeater'),
             ];
             $this->Teater_Model->updateTeater($data, $idlama);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Teater berhasil diUpdate</div>');

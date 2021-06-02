@@ -29,18 +29,14 @@ class Film extends CI_Controller {
         if ($this->form_validation->run() == false) { // jika terdapat aturan yang dilanggar
             $this->index(); // kembali ke index, yaitu tampilan view film
         }else { // jika semua aturan terpenuhi
-            $idFilm       = $this->input->post('idFilm'); // memasukkan data id film pada variabel 
-            $JudulFilm    = $this->input->post('JudulFilm');// memasukkan data judul film pada variabel
-            $Durasi       = $this->input->post('Durasi'); // memasukkan data durasi pada variabel
-            $Sinopsis     = $this->input->post('Sinopsis'); // memasukkan data sinopsis pada variabel 
     
 
             // seluruh data per variabel masuk kedalam suatu array asosiatif
             $data = [
-                'idFilm' => $idFilm,  
-                'JudulFilm' => $JudulFilm,
-                'Durasi' => $Durasi,
-                'Sinopsis' => $Sinopsis,
+                'idFilm' => $this->input->post('idFilm'),  
+                'JudulFilm' => $this->input->post('JudulFilm'),
+                'Durasi' => $this->input->post('Durasi'),
+                'Sinopsis' => $this->input->post('Sinopsis'),
             ];
             $this->Film_Model->insertFilm($data); // melakukan insert data baru ke database
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Film berhasil di tambahkan</div>'); // membuat flash data jika data berhasil di inputkan ke database
@@ -64,18 +60,14 @@ class Film extends CI_Controller {
         if ($this->form_validation->run()==false){ // jika terdapat aturan yang dilanggar
             $this->index(); // kembali ke index, yaitu tampilan view film
         }else{ // jika semua aturan terpenuhi 
-            $idFilm         = $this->input->post('idFilm'); // memasukkan data id film pada variabel 
-            $JudulFilm      = $this->input->post('JudulFilm'); // memasukkan data judul film pada variabel
-            $Durasi         = $this->input->post('Durasi'); // memasukkan data durasi pada variabel
-            $Sinopsis       = $this->input->post('Sinopsis'); // memasukkan data sinopsis pada variabel
             $idlama         = $this->input->post('idlama'); // memasukkan data id film yang lama pada variabel
             
             // seluruh data per variabel masuk kedalam suatu array asosiatif
             $data = [
-                'idFilm' => $idFilm,
-                'JudulFilm' => $JudulFilm,
-                'Durasi' => $Durasi,
-                'Sinopsis' => $Sinopsis,
+                'idFilm' => $this->input->post('idFilm'),  
+                'JudulFilm' => $this->input->post('JudulFilm'),
+                'Durasi' => $this->input->post('Durasi'),
+                'Sinopsis' => $this->input->post('Sinopsis'),
             ];
             $this->Film_Model->updateFilm($data, $idlama); // melakukan update data baru ke database berdasarkan id
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Film berhasil diUpdate</div>'); // membuat flash data jika data berhasil di inputkan ke database
