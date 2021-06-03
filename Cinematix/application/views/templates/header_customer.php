@@ -41,7 +41,7 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="assets/img/cinema.svg" alt="..." />
+            <img class="masthead-avatar bg-5" src="assets/img/logo.png" alt="..." />
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0">Cinematix</h1>
             <!-- Icon Divider-->
