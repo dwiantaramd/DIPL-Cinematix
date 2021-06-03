@@ -39,7 +39,7 @@ class Film extends CI_Controller {
                 'Sinopsis' => $this->input->post('Sinopsis'),
             ];
             $this->Film_Model->insertFilm($data); // melakukan insert data baru ke database
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Film berhasil di tambahkan</div>'); // membuat flash data jika data berhasil di inputkan ke database
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
             redirect('Film'); // kembali ke tampilan view film
         }
     }
@@ -70,13 +70,14 @@ class Film extends CI_Controller {
                 'Sinopsis' => $this->input->post('Sinopsis'),
             ];
             $this->Film_Model->updateFilm($data, $idlama); // melakukan update data baru ke database berdasarkan id
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Film berhasil diUpdate</div>'); // membuat flash data jika data berhasil di inputkan ke database
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil diUpdate<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
             redirect('Film'); // kembali ke tampilan view film
         }
     }
 
     public function delFilm($id){
         $this->Film_Model->deleteFilm($id); // menghapus data film berdasarkan id
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil diHapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); 
         redirect('Film'); // kembali ke tampilan view film
     }
 }

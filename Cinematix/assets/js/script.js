@@ -133,4 +133,24 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.PemesananDetailBtn').on('click', function () {
+        const idPemesanan = $(this).data('id');
+        $.ajax({
+            url: 'http://localhost/Cinematix/Pemesanan/getPemesananDetails',
+            data: { idPemesanan: idPemesanan },
+            method: 'post',
+            dataType: 'json',
+            success: function (data) {
+                $('#judul').val(data.judul);
+                $('#namateater').val(data.namateater);
+                $('#detil').val("Studio "+data.nostudio+", "+data.Kursi+", "+data.TglTransaksi+", "+data.jam);
+                $('#idpemesanan').val("ID ORDER : "+data.idPemesanan);
+                $('#idpemesanan').val(data.namauser);
+                $('#harga').val("Ticket                                                         Rp"+data.Harga+" x 1");
+                $('#total').val("Harga                                                         Rp"+data.Harga);
+                console.log(data);
+            }
+        });
+    });
 });

@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <a href="" class="btn btn-primary addFilmbtn" style="margin-bottom:10px;padding:10px" data-toggle="modal" data-target="#filmModal">Tambah Data Film</a>
+        <a href="" class="btn btn-primary addFilmbtn mb-2" data-toggle="modal" data-target="#filmModal"><i class="fa fa-plus-circle mr-1"></i>Tambah Data Film</a>
     </div>
 </div>
 
@@ -36,6 +36,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php if(empty($film)): ?>
+                    <tr>
+                        <td colspan="5" align="center">No data has been created</td>
+                    </tr>
+                <?php else : ?>
                     <?php foreach ($film as $fi) : ?>
                     <tr>
                         <td><?= $fi['idFilm']; ?></td>
@@ -52,7 +57,7 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                    
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>

@@ -32,7 +32,7 @@ class Teater extends CI_Controller {
                 'NamaTeater' => $this->input->post('NamaTeater'),
             ];
             $this->Teater_Model->insertTeater($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Teater berhasil di tambahkan</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Teater berhasil di tambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('Teater');
         }
     }
@@ -56,7 +56,7 @@ class Teater extends CI_Controller {
                 'NamaTeater' => $this->input->post('NamaTeater'),
             ];
             $this->Teater_Model->updateTeater($data, $idlama);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Teater berhasil diUpdate</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Teater berhasil diUpdate<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('Teater');
         }
     }

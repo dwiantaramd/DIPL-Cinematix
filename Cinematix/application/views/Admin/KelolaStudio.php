@@ -13,7 +13,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <a href="" class="btn btn-primary addStudiobtn" style="margin-bottom:10px;padding:10px" data-toggle="modal" data-target="#studioModal">Tambah Data Studio</a>
+        <a href="" class="btn btn-primary addStudiobtn mb-2"  data-toggle="modal" data-target="#studioModal"><i class="fa fa-plus-circle mr-1"></i> Tambah Data Studio</a>
     </div>
 </div>
 
@@ -35,6 +35,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php if(empty($studio)): ?>
+                    <tr>
+                        <td colspan="5" align="center">No data has been created</td>
+                    </tr>
+                <?php else : ?>
                     <?php foreach ($studio as $st) : ?>
                     <tr>
                         <td><?= $st['idStudio']; ?></td>
@@ -51,7 +56,7 @@
                         </td>
                     </tr>
                     <?php endforeach; ?>
-                    
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -115,3 +120,5 @@
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url(); ?>assets/js/demo/datatables-demo.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

@@ -24,6 +24,8 @@ class Film_Model extends CI_model {
 
     public function deleteFilm($id)
     {
+        $this->db->where('idFilm', $id); 
+        $this->db->delete('jadwaltayang');
         $this->db->where('idFilm', $id); // mengambil data berdasarkan idfilm pada database
         $this->db->delete('Film'); // melakukan hapus data pada database
     }

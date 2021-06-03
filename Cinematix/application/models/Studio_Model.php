@@ -50,6 +50,7 @@ class Studio_Model extends CI_model{
         $result = $query->row()->idStudio;
         return $result;
     }
+
 }
 
 ?>

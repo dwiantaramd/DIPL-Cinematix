@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <a href="" class="btn btn-primary addTeaterbtn" style="margin-bottom:10px;padding:10px" data-toggle="modal" data-target="#teaterModal">Tambah Data Teater</a>
+        <a href="" class="btn btn-primary addTeaterbtn mb-2" data-toggle="modal" data-target="#teaterModal"><i class="fa fa-plus-circle mr-1"></i> Tambah Data Teater</a>
     </div>
 </div>
 
@@ -27,22 +27,28 @@
                     <tr>
                         <th>idTeater</th>
                         <th>NamaTeater</th>
-                        <th>Aksi</th>
+                        <th width="90px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php if(empty($teater)): ?>
+                    <tr>
+                        <td colspan="3" align="center">No data has been created</td>
+                    </tr>
+                <?php else : ?>
                     <?php foreach ($teater as $te) : ?>
                     <tr >
                         <td><?= $te['idTeater']; ?></td>
                         <td><?= $te['NamaTeater']; ?></td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-secondary EditTeaterbtn" data-toggle="modal" data-target="#teaterModal" data-teater_id="<?= $te['idTeater'] ?>">Edit</button>
-                            <a href="<?= base_url(); ?>Teater/delTeater/<?= $te['idTeater']; ?>" class="btn btn-danger btn-icon-split btn-sm ml-2 delTeaterbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm EditTeaterbtn" data-toggle="modal" data-target="#teaterModal" data-teater_id="<?= $te['idTeater'] ?>">Edit</button>
+                            <a href="<?= base_url(); ?>Teater/delTeater/<?= $te['idTeater']; ?>" class="btn btn-danger btn-sm delTeaterbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
                                 <span class="text">Hapus</span>
                             </a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -86,3 +92,9 @@
 
 </div>
 <!-- End of Main Content -->
+
+<script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="<?= base_url(); ?>assets/js/demo/datatables-demo.js"></script>

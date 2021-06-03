@@ -34,8 +34,11 @@ class Studio extends CI_Controller {
             $NomorStudio   = $this->input->post('NomorStudio');
             $TipeStudio    = $this->input->post('TipeStudio');
             $idTeater      = $this->input->post('NamaTeater');
+
+            $namateater = $this->Teater_Model->getTeaterbyId($idTeater);
             
             if($this->Studio_Model->cekDuplicate($NomorStudio,$idTeater) != 0){
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Studio ' . $NomorStudio . ' Sudah terdapat pada teater ' . $namateater['NamaTeater'] . '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $this->index();
             }else{
                 $data = [
@@ -82,7 +85,7 @@ class Studio extends CI_Controller {
             ];
 
             $this->Studio_Model->updateStudio($data, $idlama);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Studio berhasil diUpdate</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Studio berhasil diUpdate <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('Studio');
         }
     }

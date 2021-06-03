@@ -45,7 +45,7 @@ class JadwalTayang extends CI_Controller {
             $Harga = $this->input->post('Harga');
             
             if($this->Studio_Model->cekDuplicate($NomorStudio,$idTeater) == 0){
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Studio tidak tersedia</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade-show" role="alert">Studio tidak tersedia <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $this->index();
             }else{
                 $idStudio = $this->Studio_Model->getIdStudio($NomorStudio,$idTeater);
@@ -61,7 +61,7 @@ class JadwalTayang extends CI_Controller {
                 ];
     
                 $this->JadwalTayang_Model->insertJadwalTayang($data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Jadwal Tayang berhasil di tambahkan</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Jadwal Tayang berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 redirect('JadwalTayang');
             }
         }
@@ -92,7 +92,7 @@ class JadwalTayang extends CI_Controller {
             $idlama = $this->input->post('idlama');
 
             if($this->Studio_Model->cekDuplicate($NomorStudio,$idTeater) == 0){
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Studio tidak tersedia</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Studio tidak tersedia<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $this->index();
             }else{
                 $idStudio = $this->Studio_Model->getIdStudio($NomorStudio,$idTeater);
@@ -108,7 +108,7 @@ class JadwalTayang extends CI_Controller {
                 ];
     
                 $this->JadwalTayang_Model->updateJadwalTayang($data,$idlama);
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Jadwal Tayang berhasil di update</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Jadwal Tayang berhasil di update <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 redirect('JadwalTayang');
             }
         }
@@ -116,6 +116,7 @@ class JadwalTayang extends CI_Controller {
 
     public function delJadwalTayang($id){
         $this->JadwalTayang_Model->deleteJadwalTayang($id); // menghapus data jadwaltayang berdasarkan id
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Jadwal Tayang berhasil di hapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('JadwalTayang'); // kembali ke tampilan view jadwal tayang
     }
 
