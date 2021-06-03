@@ -1,6 +1,11 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top:100px">
 
+<div class="row">
+    <div class="col-md-6">
+        <a href="" class="btn btn-primary addStudiobtn mb-2"  data-toggle="modal" data-target="#studioModal"><i class="fa fa-plus-circle mr-1"></i> Tambah Data Studio</a>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-6">
@@ -8,12 +13,6 @@
         <?= form_error('idStudio', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <?= form_error('NomorStudio', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <?= form_error('TipeStudio', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <a href="" class="btn btn-primary addStudiobtn mb-2"  data-toggle="modal" data-target="#studioModal"><i class="fa fa-plus-circle mr-1"></i> Tambah Data Studio</a>
     </div>
 </div>
 

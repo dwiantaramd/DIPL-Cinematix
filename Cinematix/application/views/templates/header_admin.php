@@ -23,6 +23,7 @@
     <!-- Custom styles for this page -->
     <link href="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/admin.css">
 </head>
 
 <body id="page-top">
@@ -76,27 +77,27 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?= base_url('JadwalTayang'); ?>" data-target="#collapseTwo"
+                <a class="nav-link collapsed px-3 py-4" href="<?= base_url('JadwalTayang'); ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Kelola Jadwal Tayang</span>
                 </a>
-                <a class="nav-link collapsed" href="<?= base_url('Teater'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4" href="<?= base_url('Teater'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Kelola Teater</span>
                 </a>
-                <a class="nav-link collapsed" href="<?= base_url('Studio'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4" href="<?= base_url('Studio'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Kelola Studio</span>
                 </a>
-                <a class="nav-link collapsed" href="<?= base_url('Film'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4" href="<?= base_url('Film'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Kelola Film</span>
                 </a>
-                <a class="nav-link collapsed" href="<?= base_url('Pemesanan'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4" href="<?= base_url('Pemesanan'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa fa-eye"></i>
                     <span>View Pemesanan</span>
@@ -114,12 +115,12 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"0 style="right:0;left:0px">
+                <nav class="navbar navbar-expand navbar-light fixed-top bg-white topbar shadow">
                     
-                    <h1 style="position: static; left: auto;"> Administrator <?= $judul; ?></h1>
+                    <h1 class="text-dark font-weight-normal mt-2" style="left: auto;"> Administrator <?= $judul; ?></h1>
 
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto ">
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

@@ -1,5 +1,12 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top:100px">
+
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="" class="btn btn-primary addTeaterbtn mb-2" data-toggle="modal" data-target="#teaterModal"><i class="fa fa-plus-circle mr-1"></i> Tambah Data Teater</a>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-6">
@@ -8,13 +15,6 @@
         <?= form_error('NamaTeater', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-6">
-        <a href="" class="btn btn-primary addTeaterbtn mb-2" data-toggle="modal" data-target="#teaterModal"><i class="fa fa-plus-circle mr-1"></i> Tambah Data Teater</a>
-    </div>
-</div>
-
 <!-- DataTales  -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">

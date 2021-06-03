@@ -1,6 +1,12 @@
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top:100px">
+
+<div class="row">
+    <div class="col-md-6">
+        <a href="" class="btn btn-primary addFilmbtn mb-2" data-toggle="modal" data-target="#filmModal"><i class="fa fa-plus-circle mr-1"></i>Tambah Data Film</a>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-6">
@@ -9,12 +15,6 @@
         <?= form_error('JudulFilm', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <?= form_error('Durasi', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
         <?= form_error('Sinopsis', '<div class="alert alert-danger" role="alert">', '</div>'); ?> 
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <a href="" class="btn btn-primary addFilmbtn mb-2" data-toggle="modal" data-target="#filmModal"><i class="fa fa-plus-circle mr-1"></i>Tambah Data Film</a>
     </div>
 </div>
 
@@ -32,7 +32,7 @@
                         <th>Judul</th>
                         <th>Durasi</th>
                         <th>Sinopsis</th>
-                        <th>Aksi</th>
+                        <th width="88px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
