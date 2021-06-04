@@ -54,7 +54,7 @@
             <p class="masthead-subheading font-weight-light mb-0">Watch - Chill - Popcorn</p>
         </div>
     </header>
-    <!-- Portfolio Section-->
+    <!-- Now Playing Section-->
     <section class="page-section portfolio" id="now_playing">
         <div class="container">
             <!-- Portfolio Section Heading-->
@@ -73,7 +73,8 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/conjuring3.png" alt="..." />
+                        <h5 class="text-center">Conjuring 3</h5>
                     </div>
                 </div>
                 <!-- Portfolio Item 2-->
@@ -82,7 +83,8 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/harrypotter.png" alt="..." />
+                        <h5 class="text-center">Harry Potter and the Deathly Hallows Part 1</h5>
                     </div>
                 </div>
                 <!-- Portfolio Item 3-->
@@ -91,7 +93,8 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/incredibles2.jpg" alt="..." />
+                        <h5 class="text-center">The Incredibles 2</h5>
                     </div>
                 </div>
                 <!-- Portfolio Item 4-->
@@ -100,7 +103,8 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/avengers.jpg" alt="..." />
+                        <h5 class="text-center">The Avengers</h5>
                     </div>
                 </div>
                 <!-- Portfolio Item 5-->
@@ -109,7 +113,8 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/godfather.jpg" alt="..." />
+                        <h5 class="text-center">The Godfather</h5>
                     </div>
                 </div>
                 <!-- Portfolio Item 6-->
@@ -118,38 +123,69 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/morbius.jpg" alt="..." />
+                        <h5 class="text-center">Morbius</h5>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- About Section-->
-    <section class="page-section bg-primary text-white mb-0" id="about">
+    <!-- Theaters Section-->
+    <!-- <section class="page-section portfolio" id="theaters"> -->
+    <section class="page-section bg-primary text-white mb-0" id="theaters">
         <div class="container">
-            <!-- About Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">Theaters</h2>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- About Section Content-->
-            <div class="row">
-                <div class="col-lg-4 ms-auto">
-                    <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+            <!-- Portfolio Grid Items-->
+            <div class="row justify-content-center">
+                <!-- Portfolio Item 1-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                        <img class="img-fluid" src="assets/img/portfolio/xxi1.jpg" alt="..." />
+                        <h5 class="text-center">XXI 1</h5>
+                    </div>
                 </div>
-                <div class="col-lg-4 me-auto">
-                    <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+                <!-- Portfolio Item 2-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                        <img class="img-fluid" src="assets/img/portfolio/xxi2.jpg" alt="..." />
+                        <h5 class="text-center">XXI 2</h5>
+                    </div>
                 </div>
-            </div>
-            <!-- About Section Button-->
-            <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                    <i class="fas fa-download me-2"></i>
-                    Free Download!
-                </a>
+                <!-- Portfolio Item 3-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                        <img class="img-fluid" src="assets/img/portfolio/xxi3.jpg" alt="..." />
+                        <h5 class="text-center">XXI 3</h5>
+                    </div>
+                </div>
+                <!-- Portfolio Item 4-->
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                        <img class="img-fluid" src="assets/img/portfolio/xxi4.jpg" alt="..." />
+                        <h5 class="text-center">XXI 4</h5>
+                    </div>
+                </div>
+                <!-- Portfolio Item 5-->
+                <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                        <img class="img-fluid" src="assets/img/portfolio/xxi5.jpg" alt="..." />
+                        <h5 class="text-center">XXI 5</h5>
+                    </div>
+                </div>
+                <!-- Portfolio Item 6-->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                        <img class="img-fluid" src="assets/img/portfolio/xxi6.jpg" alt="..." />
+                        <h5 class="text-center">XXI 6</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -191,6 +227,34 @@
             </div>
         </div>
     </section>
+    <!-- About Section -->
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content-->
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p class="lead">Cinematix is a website which allows customers to book any current movies in the cinema. By only click one site, you can customize your own sit, your theaters, even your studio. So what you are waiting for? Go to cinematix.com! </p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p class="lead">Wanna watch movies with friends or families? Now you can do both! Just googling cinematix and we will provide you the best movie tickets online booking right now.</p>
+                </div>
+            </div>
+            <!-- About Section Button-->
+            <div class="text-center mt-4">
+                <a class="btn btn-xl btn-outline-light" href="#">
+                    Go to Cinematix!
+                </a>
+            </div>
+        </div>
+    </section>
     <!-- Footer-->
     <footer class="footer text-center">
         <div class="container">
@@ -199,9 +263,9 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Location</h4>
                     <p class="lead mb-0">
-                        2215 John Daniel Drive
+                        4414 Condet Street
                         <br />
-                        Clark, MO 65243
+                        Condet 13520
                     </p>
                 </div>
                 <!-- Footer Social Icons-->
@@ -214,10 +278,10 @@
                 </div>
                 <!-- Footer About Text-->
                 <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                    <h4 class="text-uppercase mb-4">About Cinematix</h4>
                     <p class="lead mb-0">
-                        Freelance is a free to use, MIT licensed Bootstrap theme created by
-                        <a href="http://startbootstrap.com">Start Bootstrap</a>
+                        Hey, we are hiring website developer now!
+                        <a href="#">Hire aku masss</a>
                         .
                     </p>
                 </div>
@@ -226,7 +290,7 @@
     </footer>
     <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
+        <div class="container"><small>Copyright &copy; Cinematix 2021</small></div>
     </div>
     <!-- Portfolio Modals-->
     <!-- Portfolio Modal 1-->
