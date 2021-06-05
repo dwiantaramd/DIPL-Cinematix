@@ -61,9 +61,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Admin'); ?>">
+                <a class="nav-link sidebarlink" href="<?= base_url('Admin'); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                    <span style="font-size:102%;">Dashboard</span>
                 </a>
             </li>
 
@@ -77,30 +77,35 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed px-3 py-4" href="<?= base_url('JadwalTayang'); ?>" data-target="#collapseTwo"
+                <a class="nav-link collapsed px-3 py-4 sidebarlink" href="<?= base_url('JadwalTayang'); ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Kelola Jadwal Tayang</span>
+                    <span style="font-size:102%;">Kelola Jadwal Tayang</span>
                 </a>
-                <a class="nav-link collapsed py-4" href="<?= base_url('Teater'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Teater'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Kelola Teater</span>
+                    <span style="font-size:102%;">Kelola Teater</span>
                 </a>
-                <a class="nav-link collapsed py-4" href="<?= base_url('Studio'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Studio'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Kelola Studio</span>
+                    <span style="font-size:102%;">Kelola Studio</span>
                 </a>
-                <a class="nav-link collapsed py-4" href="<?= base_url('Film'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Film'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Kelola Film</span>
+                    <span style="font-size:102%;">Kelola Film</span>
                 </a>
-                <a class="nav-link collapsed py-4" href="<?= base_url('Pemesanan'); ?>"  data-target="#collapseTwo"
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Kursi'); ?>"  data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span style="font-size:102%;">Kelola Kursi</span>
+                </a>
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Pemesanan'); ?>"  data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa fa-eye"></i>
-                    <span>View Pemesanan</span>
+                    <span style="font-size:102%;">View Pemesanan</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
@@ -135,10 +140,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?= base_url('Auth/logout'); ?>">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout

@@ -32,6 +32,8 @@ class JadwalTayang_Model extends CI_model {
     public function deleteJadwalTayang($id)
     {
         $this->db->where('idJadwalTayang', $id);
+        $this->db->delete('pemesanan');
+        $this->db->where('idJadwalTayang', $id);
         $this->db->delete('jadwaltayang');
     }
 

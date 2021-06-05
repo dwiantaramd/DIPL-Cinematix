@@ -27,13 +27,35 @@ class Teater extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $this->index();
         }else {
-            $data = [
-                'idTeater' => $this->input->post('idTeater'),
-                'NamaTeater' => $this->input->post('NamaTeater'),
-            ];
-            $this->Teater_Model->insertTeater($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Teater berhasil di tambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('Teater');
+            $img = $_FILES['image']['name'];
+            if(!$img){
+                $data = [
+                    'idTeater' => $this->input->post('idTeater'),
+                    'NamaTeater' => $this->input->post('NamaTeater'),
+                    'image' => 'defaultimage.png'
+                ];
+                $this->Teater_Model->insertTeater($data);
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Teater berhasil di tambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('Teater');
+            }else{
+                $config['upload_path']      = './assets/img/teater';
+                $config['allowed_types']    = 'jpg|png|gif';
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('image')) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Add Teater Failed</div>');
+                    redirect('Teater');
+                }else{
+                    $img = $this->upload->data('file_name');
+                    $data = [
+                        'idTeater' => $this->input->post('idTeater'),
+                        'NamaTeater' => $this->input->post('NamaTeater'),
+                        'image' => $img,
+                    ];
+                    $this->Teater_Model->insertTeater($data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Teater berhasil di tambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    redirect('Teater');
+                }
+            }
         }
     }
 
@@ -61,8 +83,10 @@ class Teater extends CI_Controller {
         }
     }
 
-    public function delTeater($id){
+    public function delTeater($id)
+    {
         $this->Teater_Model->deleteTeater($id);
         redirect('Teater');
     }
+
 }

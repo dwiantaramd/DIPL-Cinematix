@@ -19,8 +19,8 @@ class Film extends CI_Controller {
         $this->load->view('templates/footer_admin.php'); // load view footer admin
     }
 
-    public function addFilm(){
-
+    public function addFilm()
+    {
         $this->form_validation->set_rules('idFilm', 'idFilm', 'required|trim|is_unique[film.idFilm]'); // set aturan data id film untuk form validation
         $this->form_validation->set_rules('JudulFilm', 'JudulFilm', 'required'); // set aturan data judul film untuk form validation
         $this->form_validation->set_rules('Durasi', 'Durasi', 'required'); // set aturan data durasi untuk form validation
@@ -28,19 +28,40 @@ class Film extends CI_Controller {
 
         if ($this->form_validation->run() == false) { // jika terdapat aturan yang dilanggar
             $this->index(); // kembali ke index, yaitu tampilan view film
-        }else { // jika semua aturan terpenuhi
-    
-
-            // seluruh data per variabel masuk kedalam suatu array asosiatif
-            $data = [
-                'idFilm' => $this->input->post('idFilm'),  
-                'JudulFilm' => $this->input->post('JudulFilm'),
-                'Durasi' => $this->input->post('Durasi'),
-                'Sinopsis' => $this->input->post('Sinopsis'),
-            ];
-            $this->Film_Model->insertFilm($data); // melakukan insert data baru ke database
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
-            redirect('Film'); // kembali ke tampilan view film
+        }else { 
+            $img = $_FILES['image']['name'];
+            if(!$img){
+                $data = [
+                    'idFilm' => $this->input->post('idFilm'),  
+                    'JudulFilm' => $this->input->post('JudulFilm'),
+                    'Durasi' => $this->input->post('Durasi'),
+                    'Sinopsis' => $this->input->post('Sinopsis'),
+                    'image' => 'defaultimage.png',
+                ];
+                $this->Film_Model->insertFilm($data); // melakukan insert data baru ke database
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
+                redirect('Film'); // kembali ke tampilan view film
+            }else{
+                $config['upload_path']      = './assets/img/film';
+                $config['allowed_types']    = 'jpg|png|gif';
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('image')) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Add Film Failed</div>');
+                    redirect('Film');
+                }else{
+                    $img = $this->upload->data('file_name');
+                    $data = [
+                        'idFilm' => $this->input->post('idFilm'),  
+                        'JudulFilm' => $this->input->post('JudulFilm'),
+                        'Durasi' => $this->input->post('Durasi'),
+                        'Sinopsis' => $this->input->post('Sinopsis'),
+                        'image' => $img,
+                    ];
+                    $this->Film_Model->insertFilm($data); // melakukan insert data baru ke database
+                    $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
+                    redirect('Film'); // kembali ke tampilan view film
+                }
+            }
         }
     }
 
@@ -54,30 +75,54 @@ class Film extends CI_Controller {
     {
         $this->form_validation->set_rules('idFilm', 'idFilm', 'required|trim'); // set aturan data id film untuk form validation
         $this->form_validation->set_rules('JudulFilm', 'JudulFilm', 'required'); // set aturan data judul film untuk form validation
-        $this->form_validation->set_rules('Durasi', 'Durasi', 'required'); // set aturan durasi untuk form validation
+        $this->form_validation->set_rules('Durasi', 'Durasi', 'required'); // set aturan data durasi untuk form validation
         $this->form_validation->set_rules('Sinopsis', 'Sinopsis', 'required'); // set aturan data sinopsis untuk form validation
 
-        if ($this->form_validation->run()==false){ // jika terdapat aturan yang dilanggar
+        if ($this->form_validation->run() == false) { // jika terdapat aturan yang dilanggar
             $this->index(); // kembali ke index, yaitu tampilan view film
-        }else{ // jika semua aturan terpenuhi 
-            $idlama         = $this->input->post('idlama'); // memasukkan data id film yang lama pada variabel
-            
-            // seluruh data per variabel masuk kedalam suatu array asosiatif
-            $data = [
-                'idFilm' => $this->input->post('idFilm'),  
-                'JudulFilm' => $this->input->post('JudulFilm'),
-                'Durasi' => $this->input->post('Durasi'),
-                'Sinopsis' => $this->input->post('Sinopsis'),
-            ];
-            $this->Film_Model->updateFilm($data, $idlama); // melakukan update data baru ke database berdasarkan id
-            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil diUpdate<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
-            redirect('Film'); // kembali ke tampilan view film
+        }else { 
+            $img = $_FILES['image']['name'];
+            $idlama = $this->input->post('idlama');
+            if(!$img){
+                $data = [
+                    'idFilm' => $this->input->post('idFilm'),  
+                    'JudulFilm' => $this->input->post('JudulFilm'),
+                    'Durasi' => $this->input->post('Durasi'),
+                    'Sinopsis' => $this->input->post('Sinopsis'),
+                    'image' => 'defaultimage.png',
+                ];
+                $this->Film_Model->updateFilm($data,$idlama); // melakukan insert data baru ke database
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
+                redirect('Film'); // kembali ke tampilan view film
+            }else{
+                $config['upload_path']      = './assets/img/film';
+                $config['allowed_types']    = 'jpg|png|gif';
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('image')) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Add Film Failed</div>');
+                    redirect('Film');
+                }else{
+                    $img = $this->upload->data('file_name');
+                    $data = [
+                        'idFilm' => $this->input->post('idFilm'),  
+                        'JudulFilm' => $this->input->post('JudulFilm'),
+                        'Durasi' => $this->input->post('Durasi'),
+                        'Sinopsis' => $this->input->post('Sinopsis'),
+                        'image' => $img,
+                    ];
+                    $this->Film_Model->updateFilm($data,$idlama); // melakukan insert data baru ke database
+                    $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil di update<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
+                    redirect('Film'); // kembali ke tampilan view film
+                }
+            }
         }
     }
 
-    public function delFilm($id){
+    public function delFilm($id)
+    {
         $this->Film_Model->deleteFilm($id); // menghapus data film berdasarkan id
         $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Film berhasil diHapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); 
         redirect('Film'); // kembali ke tampilan view film
     }
+
 }

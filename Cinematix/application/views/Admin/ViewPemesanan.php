@@ -18,9 +18,9 @@
                 <thead style="text-align:center;">
                     <tr>
                         <th width="100px">idPemesanan</th>
+                        <th>id Jadwal Tayang</th>
                         <th>User</th>
                         <th>Tanggal Transaksi</th>
-                        <th>Nomor Kursi</th>
                         <th width="110px">Aksi</th>
                     </tr>
                 </thead>
@@ -33,9 +33,9 @@
                     <?php foreach ($pemesanan as $pe) : ?>
                     <tr>
                         <td><?= $pe['idPemesanan']; ?></td>
+                        <td><?= $pe['idJadwalTayang']; ?></td>
                         <td><?= $pe['namauser']; ?></td>
                         <td><?= $pe['TglTransaksi']; ?></td>
-                        <td><?= $pe['Kursi']; ?></td>
                         <td >
                         <a href="#" class="btn btn-info btn-icon-split btn-sm PemesananDetailBtn" data-toggle="modal" data-target="#DetailPemesananModal" data-id="<?= $pe['idPemesanan']; ?>">
                             <span class="text">Details</span>
@@ -67,11 +67,15 @@
             
             <form method="post" enctype="multipart/form-data" id="PemesananForm" action="#">
                 <div class="row rounded mx-3 my-3" style="background-color:#090630">
-                    <div class="col-4 d-flex justify-content-center "><img class="rounded my-3" src="https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" alt="" width="200" height="300"></div>
-                        <div class="col-8">
-                            <div class="row mt-3">
-                                <div class="col"><input style="color:#f2c122;background-color:#090630;font-size:130%;border-style:hidden;font-weight:bold;" type="text" class="form-control" id="judul" name="judul" disabled></div>
+                    <div class="col-4 d-flex justify-content-center">
+                        <img class="rounded my-3" id="film_image" src="#" alt="" width="220" height="320">
+                    </div>
+                    <div class="col-8">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input style="color:#f2c122;background-color:#090630;font-size:130%;border-style:hidden;font-weight:bold;" type="text" class="form-control" id="judul" name="judul" disabled>
                             </div>
+                        </div>
                         <div class="row">
                             <div class="col">
                                 <input style="color:#f2c122;background-color:#090630;border-style:hidden;font-size:105%;" type="text" class="form-control" id="namateater" name="namateater" disabled>
@@ -84,23 +88,27 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                            <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idpemesanan" name="idpemesanan" disabled>
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idpemesanan" name="idpemesanan" disabled>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                            <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="namauser" name="namauser" disabled>
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idJadwalTayang" name="idJadwalTayang" disabled>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                            
-                            <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="harga" name="harga" disabled>
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="namauser" name="namauser" disabled>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                            <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="total" name="total" disabled>
+                                <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="harga" name="harga" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="total" name="total" disabled>
                             </div>
                         </div>
                     </div>

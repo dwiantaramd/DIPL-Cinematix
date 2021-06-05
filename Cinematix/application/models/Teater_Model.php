@@ -24,6 +24,7 @@ class Teater_Model extends CI_model {
 
     public function deleteTeater($id)
     {
+        $this->db->query("DELETE FROM pemesanan WHERE idJadwalTayang IN (SELECT idJadwalTayang FROM jadwaltayang WHERE idTeater = '" . $id . "')");
         $this->db->where('idTeater', $id);
         $this->db->delete('studio');
         $this->db->where('idTeater', $id);
@@ -32,5 +33,8 @@ class Teater_Model extends CI_model {
         $this->db->delete('teater');
     }
 
-	
+	public function getNumTeater()
+    {
+        return $this->db->get('teater')->num_rows();
+    }
 }

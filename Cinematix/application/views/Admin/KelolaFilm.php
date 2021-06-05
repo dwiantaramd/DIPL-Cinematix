@@ -29,6 +29,7 @@
                 <thead style="text-align:center;">
                     <tr>
                         <th>idFilm</th>
+                        <th width="88px">Image</th>
                         <th>Judul</th>
                         <th>Durasi</th>
                         <th>Sinopsis</th>
@@ -44,6 +45,7 @@
                     <?php foreach ($film as $fi) : ?>
                     <tr>
                         <td><?= $fi['idFilm']; ?></td>
+                        <td style="right:0;"><img class="rounded" src="<?= base_url('assets/img/film/') . $fi['image']; ?>" style="width:110px;height:170px"></td>
                         <td><?= $fi['JudulFilm']; ?></td>
                         <td><?= $fi['Durasi']; ?>min</td>
                         <td><?= $fi['Sinopsis']; ?></td>
@@ -93,6 +95,10 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput">Sinopsis</label>
                         <textarea rows="4" cols="50" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
                 </div>
                 <div class="modal-footer footer-film">

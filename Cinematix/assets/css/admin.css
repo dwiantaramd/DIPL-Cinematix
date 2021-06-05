@@ -1,5 +1,6 @@
-.nav-link:hover{
+.sidebarlink:hover{
     background-color:#201e73;
+    font-weight:bold;
 }
 
 .navbar{

@@ -25,7 +25,8 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                 <thead class="text-center">
                     <tr>
-                        <th>idTeater</th>
+                        <th width="30px">idTeater</th>
+                        <th width="200px">Image</th>
                         <th>NamaTeater</th>
                         <th width="90px">Aksi</th>
                     </tr>
@@ -39,6 +40,7 @@
                     <?php foreach ($teater as $te) : ?>
                     <tr >
                         <td><?= $te['idTeater']; ?></td>
+                        <td style="right:0;"><img class="rounded" src="<?= base_url('assets/img/teater/') . $te['image']; ?>" style="width:230px;height:170px"></td>
                         <td><?= $te['NamaTeater']; ?></td>
                         <td>
                             <button type="button" class="btn btn-secondary btn-sm EditTeaterbtn" data-toggle="modal" data-target="#teaterModal" data-teater_id="<?= $te['idTeater'] ?>">Edit</button>
@@ -76,6 +78,10 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput">Nama Teater</label>
                         <input type="text" class="form-control" id="NamaTeater" name="NamaTeater">
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
                 </div>
                 <div class="modal-footer footer-teater">

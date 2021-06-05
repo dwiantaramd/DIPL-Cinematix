@@ -15,7 +15,7 @@ class userModel extends CI_Model
 
     public function getNumUser()
     {
-        $this->db->where('JenisAkun', 2);
+        $this->db->where('JenisAkun', 1);
         return $this->db->get('user')->num_rows();
     }
 
