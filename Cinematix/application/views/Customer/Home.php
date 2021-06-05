@@ -16,7 +16,7 @@
         <p class="masthead-subheading font-weight-light mb-0">Watch - Chill - Popcorn</p>
     </div>
 </header>
-<!-- Now Playing Section-->
+<!-- Movies Section-->
 <section class="page-section portfolio" id="movies">
     <div class="container">
         <!-- Portfolio Section Heading-->
@@ -170,7 +170,7 @@
                         <tr>
                             <th>Film</th>
                             <th>Teater</th>
-                            <th>Studio</th>
+                            <th>Waktu Main</th>
                             <th>Tanggal</th>
                             <th width="140px">Aksi</th>
                         </tr>
@@ -185,15 +185,13 @@
                                 <tr>
                                     <td><?= $jd['judul']; ?></td>
                                     <td><?= $jd['namateater']; ?></td>
-                                    <td><?= $jd['nostudio']; ?></td>
+                                    <td><?= $jd['WaktuMulai']; ?> - <?= $jd['WaktuSelesai'] ?></td>
                                     <td><?= $jd['TglTayang']; ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-secondary btn-sm EditJadwalTayangbtn" data-toggle="modal" data-target="#jadwaltayangModal" data-id="<?= $jd['idJadwalTayang']; ?>">
-                                            <span class="text">Edit/Details</span>
-                                        </a>
-                                        <a href="<?= base_url(); ?>JadwalTayang/delJadwalTayang/<?= $jd['idJadwalTayang']; ?>" class="btn btn-danger btn-sm delJadwalTayangbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
-                                            <span class="text">Hapus</span>
-                                        </a>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#belitiketModal">
+                                            Beli Tiket
+                                        </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -267,14 +265,6 @@
                                     <td><?= $jd['namateater']; ?></td>
                                     <td><?= $jd['nostudio']; ?></td>
                                     <td><?= $jd['TglTayang']; ?></td>
-                                    <td>
-                                        <a href="#" class="btn btn-secondary btn-sm EditJadwalTayangbtn" data-toggle="modal" data-target="#jadwaltayangModal" data-id="<?= $jd['idJadwalTayang']; ?>">
-                                            <span class="text">Edit/Details</span>
-                                        </a>
-                                        <a href="<?= base_url(); ?>JadwalTayang/delJadwalTayang/<?= $jd['idJadwalTayang']; ?>" class="btn btn-danger btn-sm delJadwalTayangbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
-                                            <span class="text">Hapus</span>
-                                        </a>
-                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -544,10 +534,70 @@
     </div>
 </div>
 
+<!-- Beli Tiket Modal -->
+<div class="modal fade" id="belitiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Form Beli Tiket</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" id="JadwalTayangForm" action="<?= base_url('JadwalTayang/addjadwalTayang'); ?>">
+                    <input type="hidden" name="idlama" id="idlama">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Film</label>
+                        <select id="JudulFilm" name="JudulFilm" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($film as $fi) : ?>
+                                <option value="<?= $fi['idFilm']; ?>"><?= $fi['JudulFilm']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Teater</label>
+                        <select id="NamaTeater" name="NamaTeater" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($teater as $te) : ?>
+                                <option value="<?= $te['idTeater']; ?>"><?= $te['NamaTeater']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Studio</label>
+                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Tanggal</label>
+                        <input type="date" class="form-control" id="TglTayang" name="TglTayang">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Waktu Mulai</label>
+                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Waktu Selesai</label>
+                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Harga</label>
+                        <input type="text" class="form-control" id="Harga" name="Harga">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+                <button type="button" class="btn btn-primary">Beli</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="<?= base_url(); ?>assets/js/scripts.js"></script>
+
 </body>
 
 </html>
