@@ -296,7 +296,7 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/portfolio/conjuring3.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Do you dare to watch this? Please prepare your heart your lungs your eyes because it's veryyy seremmmm</p>
+                            <p class="mb-4">Do you dare to watch this? Please prepare your heart your lungs your eyes because it's veryyy seremmmm anjayyy</p>
                             <!-- <button class="btn btn-primary" href="Customer_JadwalTayang" data-bs-dismiss="modal">
                                 Pesan Tiket
                             </button> -->
