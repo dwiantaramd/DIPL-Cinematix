@@ -22,7 +22,7 @@ class Customer extends CI_Controller
         $data['teater'] = $this->Teater_Model->getAllTeater();
         $data['film'] = $this->Film_Model->getAllFilm();
         $this->load->view('templates/header_customer', $data);
-        $this->load->view('Customer/Home');
+        $this->load->view('Customer/Home', $data);
         $this->load->view('templates/footer_customer');
     }
 }

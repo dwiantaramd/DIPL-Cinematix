@@ -189,9 +189,12 @@
                                     <td><?= $jd['TglTayang']; ?></td>
                                     <td>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#belitiketModal">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#belitiketModal" data-bs-id="<?= $jd['idJadwalTayang']; ?>">
                                             Beli Tiket
                                         </button>
+                                        <!-- <a href="#" class="btn btn-secondary btn-icon-split btn-sm EditFilmModal" data-toggle="modal" data-target="#filmModal" data-id="<?= $fi['idFilm']; ?>">
+                                            <span class="text">Edit</span>
+                                        </a> -->
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -300,7 +303,7 @@
                             <!-- <button class="btn btn-primary" href="Customer_JadwalTayang" data-bs-dismiss="modal">
                                 Pesan Tiket
                             </button> -->
-                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Pesan Tiket</a>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -328,11 +331,8 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/portfolio/harrypotter.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Pesan Tiket
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -350,7 +350,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The Incredibles 2</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -358,13 +358,10 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/incredibles2.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -382,7 +379,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The Avengers</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -390,13 +387,10 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/avengers.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -414,7 +408,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The Godfather</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -422,13 +416,10 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/godfather.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -446,7 +437,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Morbius</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -456,11 +447,8 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -469,73 +457,8 @@
     </div>
 </div>
 
-<!-- Modal Add/Edit Jadwaltayang -->
-<div class="modal fade" id="jadwaltayangModal" tabindex="-1" role="dialog" aria-labelledby="jadwaltayangModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="LabeljadwaltayangModal">Form Tambah Jadwal Tayang</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" enctype="multipart/form-data" id="JadwalTayangForm" action="<?= base_url('JadwalTayang/addjadwalTayang'); ?>">
-                <input type="hidden" name="idlama" id="idlama">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Id Jadwal Tayang</label>
-                        <input type="text" class="form-control" id="idJadwalTayang" name="idJadwalTayang">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Film</label>
-                        <select id="JudulFilm" name="JudulFilm" class="form-control">
-                            <option disabled selected hidden>Select ...</option>
-                            <?php foreach ($film as $fi) : ?>
-                                <option value="<?= $fi['idFilm']; ?>"><?= $fi['JudulFilm']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Teater</label>
-                        <select id="NamaTeater" name="NamaTeater" class="form-control">
-                            <option disabled selected hidden>Select ...</option>
-                            <?php foreach ($teater as $te) : ?>
-                                <option value="<?= $te['idTeater']; ?>"><?= $te['NamaTeater']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Studio</label>
-                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Tanggal</label>
-                        <input type="date" class="form-control" id="TglTayang" name="TglTayang">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Waktu Mulai</label>
-                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Waktu Selesai</label>
-                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Harga</label>
-                        <input type="text" class="form-control" id="Harga" name="Harga">
-                    </div>
-                </div>
-                <div class="modal-footer footer-jadwaltayang">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <!-- Beli Tiket Modal -->
-<div class="modal fade" id="belitiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="belitiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="belitiketModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -543,18 +466,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" id="JadwalTayangForm" action="<?= base_url('JadwalTayang/addjadwalTayang'); ?>">
-                    <input type="hidden" name="idlama" id="idlama">
+                <form action="" method="post">
+                    <input type="hidden" name="idJadwalTayang" value="<?= $jadwal_tayang['idJadwalTayang'] ?>">
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Film</label>
-                        <select id="JudulFilm" name="JudulFilm" class="form-control">
-                            <option disabled selected hidden>Select ...</option>
-                            <?php foreach ($film as $fi) : ?>
-                                <option value="<?= $fi['idFilm']; ?>"><?= $fi['JudulFilm']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="judul">Film</label>
+                        <input type="text" class="form-control" id="judul" name="judul" value="<?= $jadwal_tayang['judul'] ?>" readonly>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="formGroupExampleInput">Teater</label>
                         <select id="NamaTeater" name="NamaTeater" class="form-control">
                             <option disabled selected hidden>Select ...</option>
@@ -582,7 +500,7 @@
                     <div class="form-group">
                         <label for="formGroupExampleInput">Harga</label>
                         <input type="text" class="form-control" id="Harga" name="Harga">
-                    </div>
+                    </div> -->
                 </form>
             </div>
             <div class="modal-footer">
