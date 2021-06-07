@@ -27,6 +27,7 @@ class Studio_Model extends CI_model{
 
     public function deleteStudio($id)
     {
+        $this->db->query("DELETE FROM pemesanan WHERE idJadwalTayang IN (SELECT idJadwalTayang FROM jadwaltayang WHERE idStudio = '" . $id . "')");
         $this->db->where('idStudio', $id);
         $this->db->delete('jadwaltayang');
         $this->db->where('idStudio', $id); // mengambil data berdasarkan idStudio pada database

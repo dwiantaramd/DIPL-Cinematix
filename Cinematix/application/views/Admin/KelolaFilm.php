@@ -28,6 +28,7 @@
                     <thead style="text-align:center;">
                         <tr>
                             <th>idFilm</th>
+                            <th width="88px">Image</th>
                             <th>Judul</th>
                             <th>Durasi</th>
                             <th>Sinopsis</th>
@@ -43,6 +44,7 @@
                             <?php foreach ($film as $fi) : ?>
                                 <tr>
                                     <td><?= $fi['idFilm']; ?></td>
+                                    <td style="right:0;"><img class="rounded" src="<?= base_url('assets/img/film/') . $fi['image']; ?>" style="width:110px;height:170px"></td>
                                     <td><?= $fi['JudulFilm']; ?></td>
                                     <td><?= $fi['Durasi']; ?>min</td>
                                     <td><?= $fi['Sinopsis']; ?></td>
@@ -61,50 +63,57 @@
                 </table>
             </div>
         </div>
-    </div>
 
-    <!-- Modal -->
-    <!-- Modal Add/Edit Film -->
-    <div class="modal fade" id="filmModal" tabindex="-1" role="dialog" aria-labelledby="filmModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="LabelfilmModal">Form Tambah Film</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        <!-- Modal -->
+        <!-- Modal Add/Edit Film -->
+        <div class="modal fade" id="filmModal" tabindex="-1" role="dialog" aria-labelledby="filmModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="LabelfilmModal">Form Tambah Film</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" id="FilmForm" action="<?= base_url('Film/addFilm'); ?>">
+                        <input type="hidden" name="idlama" id="idlama">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Id Film</label>
+                                <input type="text" class="form-control" id="idFilm" name="idFilm">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Judul Film</label>
+                                <input type="text" class="form-control" id="JudulFilm" name="JudulFilm">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Durasi</label>
+                                <input type="number" class="form-control" id="Durasi" name="Durasi">
+                            </div>
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Sinopsis</label>
+                                <textarea rows="4" cols="50" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer footer-film">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
                 </div>
-                <form method="post" enctype="multipart/form-data" id="FilmForm" action="<?= base_url('Film/addFilm'); ?>">
-                    <input type="hidden" name="idlama" id="idlama">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Id Film</label>
-                            <input type="text" class="form-control" id="idFilm" name="idFilm">
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Judul Film</label>
-                            <input type="text" class="form-control" id="JudulFilm" name="JudulFilm">
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Durasi</label>
-                            <input type="number" class="form-control" id="Durasi" name="Durasi">
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Sinopsis</label>
-                            <textarea rows="4" cols="50" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer footer-film">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
+                <div class="modal-footer footer-film">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
                 </form>
             </div>
         </div>
-    </div>
 
-</div>
-<!-- /.container-fluid -->
+    </div>
+    <!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->

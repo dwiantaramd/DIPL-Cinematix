@@ -144,9 +144,11 @@ $(document).ready(function () {
             success: function (data) {
                 $('#judul').val(data.judul);
                 $('#namateater').val(data.namateater);
-                $('#detil').val("Studio "+data.nostudio+", "+data.Kursi+", "+data.TglTransaksi+", "+data.jam);
+                $('#detil').val("Studio "+data.nostudio+", "+data.nokursi+", "+data.TglTransaksi+", "+data.jam);
                 $('#idpemesanan').val("ID ORDER : "+data.idPemesanan);
-                $('#idpemesanan').val(data.namauser);
+                $('#namauser').val(data.namauser);
+                $('#film_image').attr("src",'http://localhost/Cinematix/assets/img/film/'+data.film_image);
+                $('#idJadwalTayang').val("ID JADWAL TAYANG : "+data.idJadwalTayang);
                 $('#harga').val("Ticket                                                         Rp"+data.Harga+" x 1");
                 $('#total').val("Harga                                                         Rp"+data.Harga);
                 console.log(data);

@@ -24,10 +24,16 @@ class Film_Model extends CI_model {
 
     public function deleteFilm($id)
     {
+        $this->db->query("DELETE FROM pemesanan WHERE idJadwalTayang IN (SELECT idJadwalTayang FROM jadwaltayang WHERE idFilm = '" . $id . "')");
         $this->db->where('idFilm', $id); 
         $this->db->delete('jadwaltayang');
         $this->db->where('idFilm', $id); // mengambil data berdasarkan idfilm pada database
         $this->db->delete('Film'); // melakukan hapus data pada database
+    }
+
+    public function getNumFilm()
+    {
+        return $this->db->get('film')->num_rows();
     }
 
 }
