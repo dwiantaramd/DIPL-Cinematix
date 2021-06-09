@@ -17,6 +17,11 @@ class Pemesanan_Model extends CI_model
         return $this->db->get()->result_array();
     }
 
+    public function insertPemesanan($data)
+    {
+        return $this->db->insert('pemesanan', $data); //menambahkan data pemesanan ke database
+    }
+
     public function deletePemesanan($id)
     {
         $this->db->where('idPemesanan', $id);

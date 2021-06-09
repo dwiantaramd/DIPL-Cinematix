@@ -151,6 +151,7 @@
         </div>
     </div>
 </section>
+
 <!-- Now Playing Section-->
 <section class="page-section portfolio" id="now_playing">
     <div class="container">
@@ -188,13 +189,10 @@
                                     <td><?= $jd['WaktuMulai']; ?> - <?= $jd['WaktuSelesai'] ?></td>
                                     <td><?= $jd['TglTayang']; ?></td>
                                     <td>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#belitiketModal" data-bs-id="<?= $jd['idJadwalTayang']; ?>">
-                                            Beli Tiket
-                                        </button>
-                                        <!-- <a href="#" class="btn btn-secondary btn-icon-split btn-sm EditFilmModal" data-toggle="modal" data-target="#filmModal" data-id="<?= $fi['idFilm']; ?>">
-                                            <span class="text">Edit</span>
-                                        </a> -->
+                                        <!-- Button trigger -->
+                                        <a href="#" class="btn btn-primary btn-sm BeliTiketbtn" data-toggle="modal" data-target="#belitiketModal" data-id="<?= $jd['idJadwalTayang']; ?>">
+                                            <span class="text">Beli Tiket</span>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -205,6 +203,7 @@
         </div>
     </div>
 </section>
+
 <!-- About Section -->
 <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
@@ -233,11 +232,12 @@
         </div>
     </div>
 </section>
+
 <!-- History Section-->
 <section class="page-section portfolio" id="history">
     <div class="container">
         <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">History</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">History Pembelian Tiket</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -250,24 +250,32 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align:center;">
                         <tr>
-                            <th>idPemesanan</th>
-                            <th>idJadwalTayang</th>
+                            <th width="100px">idPemesanan</th>
+                            <th>Film</th>
                             <th>Tanggal Transaksi</th>
-                            <th>Total Harga</th>
+                            <th>Harga</th>
+                            <th>No. Kursi</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($jadwal_tayang)) : ?>
+                        <?php if (empty($pemesanan)) : ?>
                             <tr>
                                 <td colspan="6" align="center">No data has been created</td>
                             </tr>
                         <?php else : ?>
-                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                            <?php foreach ($pemesanan as $pe) : ?>
                                 <tr>
-                                    <td><?= $jd['judul']; ?></td>
-                                    <td><?= $jd['namateater']; ?></td>
-                                    <td><?= $jd['nostudio']; ?></td>
-                                    <td><?= $jd['TglTayang']; ?></td>
+                                    <td><?= $pe['idPemesanan']; ?></td>
+                                    <td><?= $pe['judul']; ?></td>
+                                    <td><?= $pe['TglTransaksi']; ?></td>
+                                    <td><?= $pe['Harga']; ?></td>
+                                    <td><?= $pe['nokursi']; ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary btn-sm PemesananDetailBtn" data-toggle="modal" data-target="#DetailPemesananModal" data-id="<?= $pe['idPemesanan']; ?>">
+                                            <span class="text">Details</span>
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -457,22 +465,31 @@
     </div>
 </div>
 
-<!-- Beli Tiket Modal -->
-<div class="modal fade" id="belitiketModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="belitiketModal" aria-hidden="true">
-    <div class="modal-dialog">
+<!-- Modal utit dika-->
+<!-- Modal Beli Tiket -->
+<div class="modal fade" id="belitiketModal" tabindex="-1" role="dialog" aria-labelledby="belitiketModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Form Beli Tiket</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="LabelbelitiketModal">Form Beli Tiket</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-body">
-                <form action="" method="post">
-                    <input type="hidden" name="idJadwalTayang" value="<?= $jadwal_tayang['idJadwalTayang'] ?>">
+            <form method="post" enctype="multipart/form-data" id="BeliTiketForm" action="<?= base_url('Customer/addPemesanan'); ?>">
+                <!-- <input type="hidden" name="idlama" id="idlama"> -->
+                <input type="hidden" name="idJadwalTayang" id="idJadwalTayang">
+                <div class="modal-body">
                     <div class="form-group">
-                        <label for="judul">Film</label>
-                        <input type="text" class="form-control" id="judul" name="judul" value="<?= $jadwal_tayang['judul'] ?>" readonly>
+                        <label for="formGroupExampleInput">Film</label>
+                        <select id="JudulFilm" name="JudulFilm" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($film as $fi) : ?>
+                                <option value="<?= $fi['idFilm']; ?>"><?= $fi['JudulFilm']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="formGroupExampleInput">Teater</label>
                         <select id="NamaTeater" name="NamaTeater" class="form-control">
                             <option disabled selected hidden>Select ...</option>
@@ -483,30 +500,94 @@
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Studio</label>
-                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio">
+                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
-                        <input type="date" class="form-control" id="TglTayang" name="TglTayang">
+                        <input type="date" class="form-control" id="TglTayang" name="TglTayang" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Waktu Mulai</label>
-                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai">
+                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Waktu Selesai</label>
-                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai">
+                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Harga</label>
-                        <input type="text" class="form-control" id="Harga" name="Harga">
-                    </div> -->
-                </form>
+                        <input type="text" class="form-control" id="Harga" name="Harga" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer footer-jadwaltayang">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Beli</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Detail Pemesanan -->
+<div class="modal fade" id="DetailPemesananModal" tabindex="-1" role="dialog" aria-labelledby="DetailPemesananModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="LabelDetailPemesananModal">Detail Pemesanan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-                <button type="button" class="btn btn-primary">Beli</button>
-            </div>
+
+            <form method="post" enctype="multipart/form-data" id="PemesananForm" action="#">
+                <div class="row rounded mx-3 my-3" style="background-color:#090630">
+                    <div class="col-4 d-flex justify-content-center">
+                        <img class="rounded my-3" id="film_image" src="#" alt="" width="220" height="320">
+                    </div>
+                    <div class="col-8">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input style="color:#f2c122;background-color:#090630;font-size:130%;border-style:hidden;font-weight:bold;" type="text" class="form-control" id="judul" name="judul" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:#f2c122;background-color:#090630;border-style:hidden;font-size:105%;" type="text" class="form-control" id="namateater" name="namateater" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="detil" name="detil" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idpemesanan" name="idpemesanan" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idJadwalTayang" name="idJadwalTayang" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="namauser" name="namauser" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="harga" name="harga" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="total" name="total" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -515,6 +596,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="<?= base_url(); ?>assets/js/scripts.js"></script>
+
+<!-- Anunya utit dika -->
+<script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="<?= base_url(); ?>assets/js/demo/datatables-demo.js"></script>
 
 </body>
 

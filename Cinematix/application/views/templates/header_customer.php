@@ -19,6 +19,21 @@
 </head>
 
 <body id="page-top">
+
+    <!-- bagian utit dika -->
+    <!-- Bootstrap core JavaScript-->
+    <script src="<?= base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url(); ?>assets/js/sb-admin-2.min.js"></script>
+
+    <!-- My Script -->
+    <script src="<?= base_url(); ?>assets/js/script.js"></script>
+
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
