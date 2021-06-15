@@ -1,10 +1,27 @@
 <!-- Begin Page Content -->
 <div class="container-fluid" style="margin-top:100px">
 
+<<<<<<< HEAD
+<div class="row">
+    <div class="col-md-6">
+        <a href="" class="btn btn-primary addFilmbtn mb-2" data-toggle="modal" data-target="#filmModal"><i class="fa fa-plus-circle mr-1"></i>Tambah Data Film</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <?= $this->session->flashdata('message'); ?>
+        <?= form_error('idFilm', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('JudulFilm', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('Durasi', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('Sinopsis', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?> 
+        
+=======
     <div class="row">
         <div class="col-md-6">
             <a href="" class="btn btn-primary addFilmbtn mb-2" data-toggle="modal" data-target="#filmModal"><i class="fa fa-plus-circle mr-1"></i>Tambah Data Film</a>
         </div>
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
     </div>
 
     <div class="row">
@@ -62,6 +79,30 @@
                     </tbody>
                 </table>
             </div>
+<<<<<<< HEAD
+            <form method="post" enctype="multipart/form-data" id="FilmForm" action="<?= base_url('Film/addFilm'); ?>">
+                <input type="hidden" name="idlama" id="idlama">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Id Film</label>
+                        <input type="text" class="form-control" id="idFilm" name="idFilm">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Judul Film</label>
+                        <input type="text" class="form-control" id="JudulFilm" name="JudulFilm">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Durasi</label>
+                        <input type="number" class="form-control" id="Durasi" name="Durasi">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Sinopsis</label><br>
+                        <textarea class="rounded" rows="4" cols="40" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
+=======
         </div>
 
         <!-- Modal -->
@@ -74,6 +115,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
                     </div>
                     <form method="post" enctype="multipart/form-data" id="FilmForm" action="<?= base_url('Film/addFilm'); ?>">
                         <input type="hidden" name="idlama" id="idlama">

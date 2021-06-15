@@ -86,6 +86,7 @@ class Teater extends CI_Controller {
     public function delTeater($id)
     {
         $this->Teater_Model->deleteTeater($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Teater berhasil diHapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Teater');
     }
 

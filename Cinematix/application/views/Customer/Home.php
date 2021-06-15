@@ -16,7 +16,7 @@
         <p class="masthead-subheading font-weight-light mb-0">Watch - Chill - Popcorn</p>
     </div>
 </header>
-<!-- Movies Section-->
+<!-- Now Playing Section-->
 <section class="page-section portfolio" id="movies">
     <div class="container">
         <!-- Portfolio Section Heading-->
@@ -171,7 +171,7 @@
                         <tr>
                             <th>Film</th>
                             <th>Teater</th>
-                            <th>Waktu Main</th>
+                            <th>Studio</th>
                             <th>Tanggal</th>
                             <th width="140px">Aksi</th>
                         </tr>
@@ -186,12 +186,20 @@
                                 <tr>
                                     <td><?= $jd['judul']; ?></td>
                                     <td><?= $jd['namateater']; ?></td>
-                                    <td><?= $jd['WaktuMulai']; ?> - <?= $jd['WaktuSelesai'] ?></td>
+                                    <td><?= $jd['nostudio']; ?></td>
                                     <td><?= $jd['TglTayang']; ?></td>
                                     <td>
+<<<<<<< HEAD
+                                        <a href="#" class="btn btn-secondary btn-sm EditJadwalTayangbtn" data-toggle="modal" data-target="#jadwaltayangModal" data-id="<?= $jd['idJadwalTayang']; ?>">
+                                            <span class="text">Edit/Details</span>
+                                        </a>
+                                        <a href="<?= base_url(); ?>JadwalTayang/delJadwalTayang/<?= $jd['idJadwalTayang']; ?>" class="btn btn-danger btn-sm delJadwalTayangbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
+                                            <span class="text">Hapus</span>
+=======
                                         <!-- Button trigger -->
                                         <a href="#" class="btn btn-primary btn-sm BeliTiketbtn" data-toggle="modal" data-target="#belitiketModal" data-id="<?= $jd['idJadwalTayang']; ?>">
                                             <span class="text">Beli Tiket</span>
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
                                         </a>
                                     </td>
                                 </tr>
@@ -266,6 +274,18 @@
                         <?php else : ?>
                             <?php foreach ($pemesanan as $pe) : ?>
                                 <tr>
+<<<<<<< HEAD
+                                    <td><?= $jd['judul']; ?></td>
+                                    <td><?= $jd['namateater']; ?></td>
+                                    <td><?= $jd['nostudio']; ?></td>
+                                    <td><?= $jd['TglTayang']; ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary btn-sm EditJadwalTayangbtn" data-toggle="modal" data-target="#jadwaltayangModal" data-id="<?= $jd['idJadwalTayang']; ?>">
+                                            <span class="text">Edit/Details</span>
+                                        </a>
+                                        <a href="<?= base_url(); ?>JadwalTayang/delJadwalTayang/<?= $jd['idJadwalTayang']; ?>" class="btn btn-danger btn-sm delJadwalTayangbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
+                                            <span class="text">Hapus</span>
+=======
                                     <td><?= $pe['idPemesanan']; ?></td>
                                     <td><?= $pe['judul']; ?></td>
                                     <td><?= $pe['TglTransaksi']; ?></td>
@@ -274,6 +294,7 @@
                                     <td>
                                         <a href="#" class="btn btn-primary btn-sm PemesananDetailBtn" data-toggle="modal" data-target="#DetailPemesananModal" data-id="<?= $pe['idPemesanan']; ?>">
                                             <span class="text">Details</span>
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
                                         </a>
                                     </td>
                                 </tr>
@@ -528,6 +549,8 @@
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
 <!-- Modal Detail Pemesanan -->
 <div class="modal fade" id="DetailPemesananModal" tabindex="-1" role="dialog" aria-labelledby="DetailPemesananModal" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -592,10 +615,13 @@
     </div>
 </div>
 
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="<?= base_url(); ?>assets/js/scripts.js"></script>
+<<<<<<< HEAD
+=======
 
 <!-- Anunya utit dika -->
 <script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
@@ -604,6 +630,7 @@
 <!-- Page level custom scripts -->
 <script src="<?= base_url(); ?>assets/js/demo/datatables-demo.js"></script>
 
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
 </body>
 
 </html>

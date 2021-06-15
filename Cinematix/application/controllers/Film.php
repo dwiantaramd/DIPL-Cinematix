@@ -10,6 +10,7 @@ class Film extends CI_Controller
         $this->load->library('form_validation'); // load library form validation
         $this->load->model('Film_Model'); // load model film
         $this->load->helper('form'); // load form helper 
+        $this->load->library('unit_test');
     }
 
     public function index()
