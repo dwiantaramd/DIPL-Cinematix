@@ -49,7 +49,7 @@ class Studio extends CI_Controller {
                 ];
     
                 $this->Studio_Model->insertStudio($data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Studio berhasil di tambahkan</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Studio berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 redirect('Studio');
             }
             
@@ -92,7 +92,7 @@ class Studio extends CI_Controller {
 
     public function delStudio($id){
         $this->Studio_Model->deleteStudio($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Studio berhasil diHapus</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Studio berhasil diHapus<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('Studio');
     }
 }

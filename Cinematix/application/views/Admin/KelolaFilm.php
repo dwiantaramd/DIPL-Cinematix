@@ -11,10 +11,11 @@
 <div class="row">
     <div class="col-md-6">
         <?= $this->session->flashdata('message'); ?>
-        <?= form_error('idFilm', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-        <?= form_error('JudulFilm', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-        <?= form_error('Durasi', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-        <?= form_error('Sinopsis', '<div class="alert alert-danger" role="alert">', '</div>'); ?> 
+        <?= form_error('idFilm', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('JudulFilm', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('Durasi', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('Sinopsis', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?> 
+        
     </div>
 </div>
 
@@ -93,8 +94,8 @@
                         <input type="number" class="form-control" id="Durasi" name="Durasi">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Sinopsis</label>
-                        <textarea rows="4" cols="50" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
+                        <label for="formGroupExampleInput">Sinopsis</label><br>
+                        <textarea class="rounded" rows="4" cols="40" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
                     </div>
                     <div class="form-group">
                         <label>Image</label>
