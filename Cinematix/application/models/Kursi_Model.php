@@ -23,11 +23,4 @@ class Kursi_Model extends CI_model {
         $this->db->delete('kursi'); // melakukan hapus data pada database
     }
 
-    public function isDuplicate($nokursi,$idstudio)
-    {
-        $this->db->where('NomorKursi', $nokursi);
-        $this->db->where('idStudio',$idstudio);
-        return $this->db->get('kursi')->num_rows();
-    }
-
 }

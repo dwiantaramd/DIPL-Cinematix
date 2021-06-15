@@ -9,7 +9,6 @@ class Kursi extends CI_Controller{
         $this->load->library('form_validation'); 
         $this->load->model('Kursi_Model'); 
         $this->load->model('Studio_Model'); 
-        $this->load->model('Teater_Model'); 
         $this->load->helper('form');
     }
 
@@ -29,24 +28,13 @@ class Kursi extends CI_Controller{
         if ($this->form_validation->run() == false) { 
             $this->index(); 
         }else { 
-            $NomorKursi = $this->input->post('NomorKursi');
-            $idStudio = $this->input->post('idStudio');
-
-            $nostudio = $this->Studio_Model->getStudiobyId($idStudio);
-            $namateater = $this->Teater_Model->getTeaterbyId($nostudio['idTeater']);
-
-            if($this->Kursi_Model->isDuplicate($NomorKursi,$idStudio) != 0){
-                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Kursi ' . $NomorKursi . ' Sudah terdapat pada studio ' . $nostudio['NomorStudio'] . ' Teater ' . $namateater['NamaTeater'] . '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                $this->index();
-            }else{
-                $data = [ 
-                    'NomorKursi' => $this->input->$NomorKursi,
-                    'idStudio' => $idStudio,
-                ];
-                $this->Kursi_Model->insertKursi($data); 
-                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Kursi berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
-                redirect('Kursi');
-            }
+            $data = [ 
+                'NomorKursi' => $this->input->post('NomorKursi'),
+                'idStudio' => $this->input->post('idStudio'),
+            ];
+            $this->Kursi_Model->insertKursi($data); 
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Kursi berhasil di tambahkan<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'); // membuat flash data jika data berhasil di inputkan ke database
+            redirect('Kursi');
         }
     }
 

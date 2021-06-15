@@ -91,31 +91,26 @@ class JadwalTayang extends CI_Controller
             $tgl = $this->input->post('TglTayang');
             $Harga = $this->input->post('Harga');
             $idlama = $this->input->post('idlama');
-            $idStudio = $this->Studio_Model->getIdStudio($NomorStudio, $idTeater);
-             
-            if ($this->JadwalTayang_Model->validasi($idTeater,$WaktuMulai,$tgl,$idStudio) == 0) { // cek semua data sama kecuali film
-                if ($this->Studio_Model->cekDuplicate($NomorStudio, $idTeater) == 0) { // cek studio di teater tsb.
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Studio tidak tersedia<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    $this->index();
-                } else {
-                    $data = [
-                        'idJadwalTayang' => $idJadwalTayang,
-                        'idStudio' => $idStudio,
-                        'idFilm' => $idFilm,
-                        'idTeater' => $idTeater,
-                        'TglTayang' => $tgl,
-                        'WaktuMulai' => $WaktuMulai,
-                        'WaktuSelesai' => $WaktuSelesai,
-                        'Harga' => $Harga,
-                    ];
-    
-                    $this->JadwalTayang_Model->updateJadwalTayang($data, $idlama);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Jadwal Tayang berhasil di update <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    redirect('JadwalTayang');
-                }
-            }else{
-                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">gagal Memasukkan Data<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+
+            if ($this->Studio_Model->cekDuplicate($NomorStudio, $idTeater) == 0) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Studio tidak tersedia<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 $this->index();
+            } else {
+                $idStudio = $this->Studio_Model->getIdStudio($NomorStudio, $idTeater);
+                $data = [
+                    'idJadwalTayang' => $idJadwalTayang,
+                    'idStudio' => $idStudio,
+                    'idFilm' => $idFilm,
+                    'idTeater' => $idTeater,
+                    'TglTayang' => $tgl,
+                    'WaktuMulai' => $WaktuMulai,
+                    'WaktuSelesai' => $WaktuSelesai,
+                    'Harga' => $Harga,
+                ];
+
+                $this->JadwalTayang_Model->updateJadwalTayang($data, $idlama);
+                $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Jadwal Tayang berhasil di update <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('JadwalTayang');
             }
         }
     }

@@ -49,15 +49,4 @@ class JadwalTayang_Model extends CI_model
         $this->db->where('idJadwalTayang', $id);
         return $this->db->get()->row_array();
     }
-
-    public function validasi($idTeater,$waktumulai,$tgl,$idStudio)
-    {
-        $this->db-where('idTeater',$idTeater);
-        $this->db-where('idStudio',$idStudio);
-        $this->db-where('WaktuMulai',$WaktuMulai);
-        $this->db-where('TglTayang',$tgl);
-        return $this->db->get('jadwaltayang')->num_rows();
-    }
-
 }
-

@@ -11,8 +11,8 @@
 <div class="row">
     <div class="col-md-6">
         <?= $this->session->flashdata('message'); ?>
-        <?= form_error('idTeater', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
-        <?= form_error('NamaTeater', '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>'); ?>
+        <?= form_error('idTeater', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+        <?= form_error('NamaTeater', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
     </div>
 </div>
 <!-- DataTales  -->

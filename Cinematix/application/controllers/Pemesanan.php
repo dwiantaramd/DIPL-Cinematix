@@ -22,7 +22,7 @@ class Pemesanan extends CI_Controller {
     public function delPemesanan($id)
     {
         $this->Pemesanan_Model->deletePemesanan($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">Pemesanan berhasil diHapus<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pemesanan berhasil diHapus</div>');
         redirect('Pemesanan');
     }
 
