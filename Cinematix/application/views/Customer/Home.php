@@ -151,6 +151,7 @@
         </div>
     </div>
 </section>
+
 <!-- Now Playing Section-->
 <section class="page-section portfolio" id="now_playing">
     <div class="container">
@@ -188,11 +189,17 @@
                                     <td><?= $jd['nostudio']; ?></td>
                                     <td><?= $jd['TglTayang']; ?></td>
                                     <td>
+<<<<<<< HEAD
                                         <a href="#" class="btn btn-secondary btn-sm EditJadwalTayangbtn" data-toggle="modal" data-target="#jadwaltayangModal" data-id="<?= $jd['idJadwalTayang']; ?>">
                                             <span class="text">Edit/Details</span>
                                         </a>
                                         <a href="<?= base_url(); ?>JadwalTayang/delJadwalTayang/<?= $jd['idJadwalTayang']; ?>" class="btn btn-danger btn-sm delJadwalTayangbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
                                             <span class="text">Hapus</span>
+=======
+                                        <!-- Button trigger -->
+                                        <a href="#" class="btn btn-primary btn-sm BeliTiketbtn" data-toggle="modal" data-target="#belitiketModal" data-id="<?= $jd['idJadwalTayang']; ?>">
+                                            <span class="text">Beli Tiket</span>
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
                                         </a>
                                     </td>
                                 </tr>
@@ -204,6 +211,7 @@
         </div>
     </div>
 </section>
+
 <!-- About Section -->
 <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
@@ -232,11 +240,12 @@
         </div>
     </div>
 </section>
+
 <!-- History Section-->
 <section class="page-section portfolio" id="history">
     <div class="container">
         <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">History</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">History Pembelian Tiket</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -249,20 +258,23 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align:center;">
                         <tr>
-                            <th>idPemesanan</th>
-                            <th>idJadwalTayang</th>
+                            <th width="100px">idPemesanan</th>
+                            <th>Film</th>
                             <th>Tanggal Transaksi</th>
-                            <th>Total Harga</th>
+                            <th>Harga</th>
+                            <th>No. Kursi</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($jadwal_tayang)) : ?>
+                        <?php if (empty($pemesanan)) : ?>
                             <tr>
                                 <td colspan="6" align="center">No data has been created</td>
                             </tr>
                         <?php else : ?>
-                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                            <?php foreach ($pemesanan as $pe) : ?>
                                 <tr>
+<<<<<<< HEAD
                                     <td><?= $jd['judul']; ?></td>
                                     <td><?= $jd['namateater']; ?></td>
                                     <td><?= $jd['nostudio']; ?></td>
@@ -273,6 +285,16 @@
                                         </a>
                                         <a href="<?= base_url(); ?>JadwalTayang/delJadwalTayang/<?= $jd['idJadwalTayang']; ?>" class="btn btn-danger btn-sm delJadwalTayangbtn" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?');">
                                             <span class="text">Hapus</span>
+=======
+                                    <td><?= $pe['idPemesanan']; ?></td>
+                                    <td><?= $pe['judul']; ?></td>
+                                    <td><?= $pe['TglTransaksi']; ?></td>
+                                    <td><?= $pe['Harga']; ?></td>
+                                    <td><?= $pe['nokursi']; ?></td>
+                                    <td>
+                                        <a href="#" class="btn btn-primary btn-sm PemesananDetailBtn" data-toggle="modal" data-target="#DetailPemesananModal" data-id="<?= $pe['idPemesanan']; ?>">
+                                            <span class="text">Details</span>
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
                                         </a>
                                     </td>
                                 </tr>
@@ -306,11 +328,11 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/portfolio/conjuring3.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Do you dare to watch this? Please prepare your heart your lungs your eyes because it's veryyy seremmmm</p>
+                            <p class="mb-4">Do you dare to watch this? Please prepare your heart your lungs your eyes because it's veryyy seremmmm anjayyy</p>
                             <!-- <button class="btn btn-primary" href="Customer_JadwalTayang" data-bs-dismiss="modal">
                                 Pesan Tiket
                             </button> -->
-                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Pesan Tiket</a>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -338,11 +360,8 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/portfolio/harrypotter.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Pesan Tiket
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -360,7 +379,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The Incredibles 2</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -368,13 +387,10 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/incredibles2.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -392,7 +408,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The Avengers</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -400,13 +416,10 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/avengers.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -424,7 +437,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">The Godfather</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -432,13 +445,10 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/godfather.jpg" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -456,7 +466,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <!-- Portfolio Modal - Title-->
-                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Morbius</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -466,11 +476,8 @@
                             <!-- Portfolio Modal - Image-->
                             <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                            <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                <i class="fas fa-times fa-fw"></i>
-                                Close Window
-                            </button>
+                            <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
+                            <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
                         </div>
                     </div>
                 </div>
@@ -479,23 +486,21 @@
     </div>
 </div>
 
-<!-- Modal Add/Edit Jadwaltayang -->
-<div class="modal fade" id="jadwaltayangModal" tabindex="-1" role="dialog" aria-labelledby="jadwaltayangModal" aria-hidden="true">
+<!-- Modal utit dika-->
+<!-- Modal Beli Tiket -->
+<div class="modal fade" id="belitiketModal" tabindex="-1" role="dialog" aria-labelledby="belitiketModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="LabeljadwaltayangModal">Form Tambah Jadwal Tayang</h5>
+                <h5 class="modal-title" id="LabelbelitiketModal">Form Beli Tiket</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" enctype="multipart/form-data" id="JadwalTayangForm" action="<?= base_url('JadwalTayang/addjadwalTayang'); ?>">
-                <input type="hidden" name="idlama" id="idlama">
+            <form method="post" enctype="multipart/form-data" id="BeliTiketForm" action="<?= base_url('Customer/addPemesanan'); ?>">
+                <!-- <input type="hidden" name="idlama" id="idlama"> -->
+                <input type="hidden" name="idJadwalTayang" id="idJadwalTayang">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Id Jadwal Tayang</label>
-                        <input type="text" class="form-control" id="idJadwalTayang" name="idJadwalTayang">
-                    </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Film</label>
                         <select id="JudulFilm" name="JudulFilm" class="form-control">
@@ -516,38 +521,116 @@
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Studio</label>
-                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio">
+                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
-                        <input type="date" class="form-control" id="TglTayang" name="TglTayang">
+                        <input type="date" class="form-control" id="TglTayang" name="TglTayang" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Waktu Mulai</label>
-                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai">
+                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Waktu Selesai</label>
-                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai">
+                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai" readonly>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Harga</label>
-                        <input type="text" class="form-control" id="Harga" name="Harga">
+                        <input type="text" class="form-control" id="Harga" name="Harga" readonly>
                     </div>
                 </div>
                 <div class="modal-footer footer-jadwaltayang">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Beli</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<!-- Modal Detail Pemesanan -->
+<div class="modal fade" id="DetailPemesananModal" tabindex="-1" role="dialog" aria-labelledby="DetailPemesananModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="LabelDetailPemesananModal">Detail Pemesanan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form method="post" enctype="multipart/form-data" id="PemesananForm" action="#">
+                <div class="row rounded mx-3 my-3" style="background-color:#090630">
+                    <div class="col-4 d-flex justify-content-center">
+                        <img class="rounded my-3" id="film_image" src="#" alt="" width="220" height="320">
+                    </div>
+                    <div class="col-8">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <input style="color:#f2c122;background-color:#090630;font-size:130%;border-style:hidden;font-weight:bold;" type="text" class="form-control" id="judul" name="judul" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:#f2c122;background-color:#090630;border-style:hidden;font-size:105%;" type="text" class="form-control" id="namateater" name="namateater" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="detil" name="detil" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idpemesanan" name="idpemesanan" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="idJadwalTayang" name="idJadwalTayang" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="background-color:#090630;border-style:hidden;" type="text" class="form-control" id="namauser" name="namauser" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="harga" name="harga" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input style="color:white;background-color:#090630;border-style:hidden;" type="text" class="form-control" id="total" name="total" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="<?= base_url(); ?>assets/js/scripts.js"></script>
+<<<<<<< HEAD
+=======
+
+<!-- Anunya utit dika -->
+<script src="<?= base_url(); ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="<?= base_url(); ?>assets/js/demo/datatables-demo.js"></script>
+
+>>>>>>> 52163efd14b4b014ef6a7faff6afdd61457cb524
 </body>
 
 </html>

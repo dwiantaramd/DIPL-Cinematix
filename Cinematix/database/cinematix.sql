@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 05:27 AM
+-- Generation Time: Jun 09, 2021 at 05:02 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -53,18 +53,18 @@ CREATE TABLE `film` (
   `idFilm` varchar(5) NOT NULL,
   `JudulFilm` varchar(50) NOT NULL,
   `Durasi` int(3) NOT NULL,
-  `Sinopsis` varchar(500) NOT NULL
+  `Sinopsis` varchar(500) NOT NULL,
+  `image` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `film`
 --
 
-INSERT INTO `film` (`idFilm`, `JudulFilm`, `Durasi`, `Sinopsis`) VALUES
-('FI001', 'Harry Potter and the Deathly Hallows Part 1', 153, 'abcdefghijklmn'),
-('FI002', 'Harry Potter and the Deathly Hallows Part 2', 162, 'deswcaqevcaeh'),
-('FI004', 'The Avengers', 122, 'seru bingitsss...'),
-('FI005', 'The Avengers : Age of Ultron', 120, 'wewewewewewewewwew');
+INSERT INTO `film` (`idFilm`, `JudulFilm`, `Durasi`, `Sinopsis`, `image`) VALUES
+('FI001', 'Harry Potter and the Deathly Hallows Part 1', 102, 'ini Sinopsis Film Harry Potter', 'potter_11.jpg'),
+('FI002', 'The Incredibles', 93, 'Ini Sinpsis Film The Incredibles', 'incredibles.jpg'),
+('FI003', 'The Avengers', 122, 'Ini Sinopsis Film The Avengers', 'the_avengers.jpg');
 
 -- --------------------------------------------------------
 
@@ -88,9 +88,8 @@ CREATE TABLE `jadwaltayang` (
 --
 
 INSERT INTO `jadwaltayang` (`idJadwalTayang`, `idFilm`, `idTeater`, `idStudio`, `WaktuMulai`, `WaktuSelesai`, `TglTayang`, `Harga`) VALUES
-('JD001', 'FI001', 'TE001', 'ST001', '11:00', '13:30', '2021-04-02', '25000'),
-('JD002', 'FI001', 'TE001', 'ST001', '14:00', '16:30', '2021-04-02', '25000'),
-('JD005', 'FI004', 'TE002', 'ST006', '7:00', '9:30', '2021-06-17', '25000');
+('JD001', 'FI001', 'TE001', 'ST001', '7:00', '9:30', '2021-06-01', '25000'),
+('JD010', 'FI001', 'TE001', 'ST001', '7:00', '9:30', '2021-06-01', '25000');
 
 -- --------------------------------------------------------
 
@@ -99,8 +98,8 @@ INSERT INTO `jadwaltayang` (`idJadwalTayang`, `idFilm`, `idTeater`, `idStudio`, 
 --
 
 CREATE TABLE `kursi` (
-  `idKursi` int(11) NOT NULL,
-  `NomorKursi` varchar(5) NOT NULL,
+  `idKursi` int(5) NOT NULL,
+  `NomorKursi` varchar(3) NOT NULL,
   `idStudio` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -109,17 +108,9 @@ CREATE TABLE `kursi` (
 --
 
 INSERT INTO `kursi` (`idKursi`, `NomorKursi`, `idStudio`) VALUES
-(1, 'A1', 'ST001'),
-(2, 'A2', 'ST001'),
-(3, 'A3', 'ST001'),
-(4, 'A4', 'ST001'),
-(5, 'A5', 'ST001'),
-(6, 'A6', 'ST001'),
-(7, 'A7', 'ST001'),
-(8, 'A8', 'ST001'),
-(9, 'A9', 'ST001'),
-(10, 'A10', 'ST001'),
-(11, 'A1', 'ST003');
+(2, 'A1', 'ST001'),
+(3, 'A2', 'ST001'),
+(4, 'A3', 'ST001');
 
 -- --------------------------------------------------------
 
@@ -145,17 +136,15 @@ CREATE TABLE `pemesanan` (
   `User` varchar(20) NOT NULL,
   `TglTransaksi` date NOT NULL,
   `Harga` int(10) NOT NULL,
-  `Kursi` varchar(3) NOT NULL
+  `idKursi` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pemesanan`
 --
 
-INSERT INTO `pemesanan` (`idPemesanan`, `idJadwalTayang`, `User`, `TglTransaksi`, `Harga`, `Kursi`) VALUES
-(3, 'JD001', 'raihanmuhith', '2021-06-03', 25000, 'A4'),
-(4, 'JD001', 'raihanmuhith', '2021-06-03', 25000, 'A5'),
-(5, 'JD005', 'raihanmuhith', '2021-06-03', 25000, 'A1');
+INSERT INTO `pemesanan` (`idPemesanan`, `idJadwalTayang`, `User`, `TglTransaksi`, `Harga`, `idKursi`) VALUES
+(1, 'JD001', 'raihanmuhith', '2021-06-03', 25000, '2');
 
 -- --------------------------------------------------------
 
@@ -179,13 +168,11 @@ INSERT INTO `studio` (`idStudio`, `NomorStudio`, `TipeStudio`, `idTeater`) VALUE
 ('ST002', '2', 'Reguler', 'TE001'),
 ('ST003', '3', 'SweetBox', 'TE001'),
 ('ST004', '1', 'Reguler', 'TE002'),
-('ST005', '2', 'SweetBox', 'TE002'),
+('ST005', '2', 'Reguler', 'TE002'),
 ('ST006', '3', 'Reguler', 'TE002'),
-('ST007', '4', 'Reguler', 'TE001'),
-('ST008', '1', 'Reguler', 'TE003'),
-('ST009', '2', 'Reguler', 'TE003'),
-('ST010', '3', 'Reguler', 'TE003'),
-('ST011', '4', 'Reguler', 'TE003');
+('ST007', '1', 'Gold', 'TE003'),
+('ST008', '2', 'SweetBox', 'TE003'),
+('ST009', '1', 'Premiere', 'TE004');
 
 -- --------------------------------------------------------
 
@@ -195,18 +182,19 @@ INSERT INTO `studio` (`idStudio`, `NomorStudio`, `TipeStudio`, `idTeater`) VALUE
 
 CREATE TABLE `teater` (
   `idTeater` varchar(5) NOT NULL,
-  `NamaTeater` varchar(50) NOT NULL
+  `NamaTeater` varchar(50) NOT NULL,
+  `image` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teater`
 --
 
-INSERT INTO `teater` (`idTeater`, `NamaTeater`) VALUES
-('TE001', 'XXI Transmart Buah Batu'),
-('TE002', 'XXI Plaza Senayan'),
-('TE003', 'XXI Trans Studio Mall'),
-('TE004', 'CGV Grand Indonesia');
+INSERT INTO `teater` (`idTeater`, `NamaTeater`, `image`) VALUES
+('TE001', 'XXI Trans Studio Mall', 'transstudio.jpg'),
+('TE002', 'XXI Transmart Buah Batu', 'transmartbubat.jpg'),
+('TE003', 'CGV Grand Indonesia', 'GI.jpg'),
+('TE004', 'XXI Plaza Senayan', 'plazasenayan.jpg');
 
 -- --------------------------------------------------------
 
@@ -295,13 +283,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `kursi`
 --
 ALTER TABLE `kursi`
-  MODIFY `idKursi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idKursi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `idPemesanan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idPemesanan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

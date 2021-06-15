@@ -13,9 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -53,7 +51,7 @@
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Cinematix</div> -->
-                <img src="<?= base_url();?>assets/img/logo.png" width=150 height=150 alt="">
+                <img src="<?= base_url(); ?>assets/img/logo.png" width=150 height=150 alt="">
             </a>
 
             <!-- Divider -->
@@ -77,33 +75,27 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed px-3 py-4 sidebarlink" href="<?= base_url('JadwalTayang'); ?>" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed px-3 py-4 sidebarlink" href="<?= base_url('JadwalTayang'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span style="font-size:102%;">Kelola Jadwal Tayang</span>
                 </a>
-                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Teater'); ?>"  data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Teater'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span style="font-size:102%;">Kelola Teater</span>
                 </a>
-                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Studio'); ?>"  data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Studio'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span style="font-size:102%;">Kelola Studio</span>
                 </a>
-                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Film'); ?>"  data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Film'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span style="font-size:102%;">Kelola Film</span>
                 </a>
-                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Kursi'); ?>"  data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Kursi'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span style="font-size:102%;">Kelola Kursi</span>
                 </a>
-                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Pemesanan'); ?>"  data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed py-4 sidebarlink" href="<?= base_url('Pemesanan'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa fa-eye"></i>
                     <span style="font-size:102%;">View Pemesanan</span>
                 </a>
@@ -112,7 +104,7 @@
 
 
         </ul>
-    
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -121,7 +113,7 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light fixed-top bg-white topbar shadow">
-                    
+
                     <h1 class="text-dark font-weight-normal mt-2" style="left: auto;"> Administrator <?= $judul; ?></h1>
 
                     <!-- Topbar Navbar -->
@@ -131,15 +123,12 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="<?= base_url(); ?>assets/img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="<?= base_url(); ?>assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="<?= base_url('Auth/logout'); ?>">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -151,4 +140,3 @@
 
                 </nav>
                 <!-- End of Topbar -->
-        
