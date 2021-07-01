@@ -94,21 +94,17 @@
                                 <label for="formGroupExampleInput">Sinopsis</label>
                                 <textarea rows="4" cols="50" id="Sinopsis" name="Sinopsis" form="FilmForm">Enter text here...</textarea>
                             </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                            </div>
                         </div>
                         <div class="modal-footer footer-film">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
-                        <div class="form-group">
-                            <label>Image</label>
-                            <input type="file" class="form-control" id="image" name="image">
-                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer footer-film">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                </div>
-                </form>
             </div>
         </div>
 

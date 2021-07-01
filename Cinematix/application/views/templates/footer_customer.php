@@ -24,7 +24,7 @@
                 <h4 class="text-uppercase mb-4">About Cinematix</h4>
                 <p class="lead mb-0">
                     Hey, we are hiring website developer now!
-                    <a href="#">Hire aku masss</a>
+                    <a href="#">Register Now!</a>
                     .
                 </p>
             </div>

@@ -44,10 +44,13 @@
                                     <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>Choose Profile Picture</label>
+                                <input type="file" class="form-control form-control-user" id="image" name="image">
+                            </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                 Register Account
                             </button>
-
                         </form>
                         <hr>
                         <div class="text-center">

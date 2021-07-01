@@ -163,17 +163,25 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
+        <!-- Button Pesan Tiket -->
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#" class="btn btn-primary Pemesananbtn mb-2" data-toggle="modal" data-target="#pemesananModal"><i class="fa fa-plus-circle mr-1"></i> Pesan Tiket</a>
+            </div>
+        </div>
         <!-- Contact Section Form-->
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead style="text-align:center;">
                         <tr>
+                            <th>ID</th>
                             <th>Film</th>
                             <th>Teater</th>
+                            <th>Studio</th>
                             <th>Waktu Main</th>
                             <th>Tanggal</th>
-                            <th width="140px">Aksi</th>
+                            <th>Harga</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -184,16 +192,13 @@
                         <?php else : ?>
                             <?php foreach ($jadwal_tayang as $jd) : ?>
                                 <tr>
+                                    <td><?= $jd['idJadwalTayang']; ?></td>
                                     <td><?= $jd['judul']; ?></td>
                                     <td><?= $jd['namateater']; ?></td>
+                                    <td><?= $jd['nostudio']; ?></td>
                                     <td><?= $jd['WaktuMulai']; ?> - <?= $jd['WaktuSelesai'] ?></td>
                                     <td><?= $jd['TglTayang']; ?></td>
-                                    <td>
-                                        <!-- Button trigger -->
-                                        <a href="#" class="btn btn-primary btn-sm BeliTiketbtn" data-toggle="modal" data-target="#belitiketModal" data-id="<?= $jd['idJadwalTayang']; ?>">
-                                            <span class="text">Beli Tiket</span>
-                                        </a>
-                                    </td>
+                                    <td><?= $jd['Harga']; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -237,7 +242,7 @@
 <section class="page-section portfolio" id="history">
     <div class="container">
         <!-- Contact Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">History Pembelian Tiket</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">History Pemesanan Tiket</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -453,7 +458,7 @@
                                 <div class="divider-custom-line"></div>
                             </div>
                             <!-- Portfolio Modal - Image-->
-                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png" alt="..." />
+                            <img class="img-fluid rounded mb-5" src="assets/img/portfolio/morbius.png" alt="..." />
                             <!-- Portfolio Modal - Text-->
                             <p class="mb-4">Alberto accio aguamenti alohomora anapneo aparecium bombardo brackium emendo disillusionment charm expecto patronum erecto fiendfyre curse finite incantatem geminio homenum revelio immobulus impedimenta incarcerous imperio mucus ad nauseam muffliato periculum piertotum locomotr reducto reparifors reparo sectumsempra serpensortia</p>
                             <a type="button" class="btn btn-primary btn-lg" href="#now_playing">Beli Tiket</a>
@@ -465,67 +470,103 @@
     </div>
 </div>
 
-<!-- Modal utit dika-->
 <!-- Modal Beli Tiket -->
-<div class="modal fade" id="belitiketModal" tabindex="-1" role="dialog" aria-labelledby="belitiketModal" aria-hidden="true">
+<div class="modal fade" id="pemesananModal" tabindex="-1" role="dialog" aria-labelledby="pemesananModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="LabelbelitiketModal">Form Beli Tiket</h5>
+                <h5 class="modal-title" id="LabelpemesananModal">Form Pemesanan Tiket</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" enctype="multipart/form-data" id="BeliTiketForm" action="<?= base_url('Customer/addPemesanan'); ?>">
-                <!-- <input type="hidden" name="idlama" id="idlama"> -->
-                <input type="hidden" name="idJadwalTayang" id="idJadwalTayang">
+            <form method="post" enctype="multipart/form-data" id="PemesananForm" action="<?= base_url('Customer/addPemesanan'); ?>">
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">ID</label>
+                        <select id="idJadwalTayang" name="idJadwalTayang" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['idJadwalTayang']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Film</label>
                         <select id="JudulFilm" name="JudulFilm" class="form-control">
                             <option disabled selected hidden>Select ...</option>
-                            <?php foreach ($film as $fi) : ?>
-                                <option value="<?= $fi['idFilm']; ?>"><?= $fi['JudulFilm']; ?></option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['judul']; ?></option>
                             <?php endforeach; ?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Username Anda</label>
+                        <input type="text" class="form-control" id="username" name="username">
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Teater</label>
                         <select id="NamaTeater" name="NamaTeater" class="form-control">
                             <option disabled selected hidden>Select ...</option>
-                            <?php foreach ($teater as $te) : ?>
-                                <option value="<?= $te['idTeater']; ?>"><?= $te['NamaTeater']; ?></option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['namateater']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Studio</label>
-                        <input type="text" class="form-control" id="NomorStudio" name="NomorStudio" readonly>
+                        <select id="NomorStudio" name="NomorStudio" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['nostudio']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Waktu Main</label>
+                        <select id="WaktuMain" name="WaktuMain" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['WaktuMulai']; ?> - <?= $jd['WaktuSelesai']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Tanggal</label>
-                        <input type="date" class="form-control" id="TglTayang" name="TglTayang" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Waktu Mulai</label>
-                        <input type="text" class="form-control" id="WaktuMulai" name="WaktuMulai" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Waktu Selesai</label>
-                        <input type="text" class="form-control" id="WaktuSelesai" name="WaktuSelesai" readonly>
+                        <select id="tanggal" name="tanggal" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['TglTayang']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Harga</label>
-                        <input type="text" class="form-control" id="Harga" name="Harga" readonly>
+                        <select id="harga" name="harga" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($jadwal_tayang as $jd) : ?>
+                                <option><?= $jd['Harga']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Kursi</label>
+                        <select id="NomorKursi" name="NomorKursi" class="form-control">
+                            <option disabled selected hidden>Select ...</option>
+                            <?php foreach ($kursi as $kr) : ?>
+                                <option value="<?= $kr['idKursi']; ?>"><?= $kr['NomorKursi']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
-                <div class="modal-footer footer-jadwaltayang">
+                <div class="modal-footer footer-pemesanan">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Beli</button>
+                    <button type="submit" class="btn btn-primary">Pesan</button>
                 </div>
-            </form>
         </div>
+        </form>
     </div>
+</div>
 </div>
 
 <!-- Modal Detail Pemesanan -->

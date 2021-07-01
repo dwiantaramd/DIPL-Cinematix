@@ -134,41 +134,15 @@ $(document).ready(function () {
         });
     });
 
-    $('.BeliTiketbtn').on('click', function () {
-        $('#LabelbelitiketModal').html('Form Beli Tiket');
-        $('.footer-belitiket button[type=submit]').html('Beli');
-        //$('#JadwalTayangForm').attr('action', 'http://localhost/Cinematix/JadwalTayang/editJadwalTayang');
-
-        const idJadwalTayang = $(this).data('id');
-
-        $.ajax({
-            url: 'http://localhost/Cinematix/JadwalTayang/getJadwalTayangDetails',
-            data: { idJadwalTayang: idJadwalTayang },
-            method: 'post',
-            dataType: 'json',
-            success: function (data) {
-                $('#idJadwalTayang').val(data.idJadwalTayang);
-                $('#JudulFilm').val(data.idFilm);
-                $('#NamaTeater').val(data.idTeater);
-                $('#NomorStudio').val(data.nostudio);
-                $('#TglTayang').val(data.TglTayang);
-                $('#WaktuMulai').val(data.WaktuMulai);
-                $('#WaktuSelesai').val(data.WaktuSelesai);
-                $('#Harga').val(data.Harga);
-                $('#idlama').val(data.idJadwalTayang);
-                console.log(data);
-            }
-        });
-
+    $('.Pemesananbtn').on('click', function () {
+        $('#LabelpemesananModal').html('Form Pemesanan Tiket');
+        $('.footer-pemesanan button[type=submit]').html('Pesan');
         $('#idJadwalTayang').val("");
-        $('#JudulFilm').val("");
-        $('#NamaTeater').val("");
-        $('#NomorStudio').val("");
-        $('#TglTayang').val("");
-        $('#WaktuMulai').val("");
-        $('#WaktuSelesai').val("");
-        $('#Harga').val("");
-        $('#BeliTiketForm').attr('action', 'http://localhost/Cinematix/Customer/addPemesanan');
+        $('#username').val("");
+        $('#tanggal').val("");
+        $('#harga').val("");
+        $('#NomorKursi').val("");
+        $('#PemesananForm').attr('action', 'http://localhost/Cinematix/Customer/addPemesanan');
     });
 
     $('.PemesananDetailBtn').on('click', function () {

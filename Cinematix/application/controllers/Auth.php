@@ -24,7 +24,9 @@ class Auth extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $user = $this->userModel->getUser($username);
+            //$user = $this->userModel->getUser($username);
+
+            $user = $this->db->get_where('user', ['username' => $username])->row_array();
             if ($user) {
                 if ($password == $user['Password']) {
                     $data = [
@@ -34,7 +36,7 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
                     if ($data['role'] == "0") {
                         redirect('Admin');
-                    } else if($data['role'] == "1"){
+                    } else if ($data['role'] == "1") {
                         redirect('Customer');
                     }
                 } else {
@@ -70,25 +72,57 @@ class Auth extends CI_Controller
             $this->load->view('auth/Register');
             $this->load->view('templates/auth_footer');
         } else {
-            $data1 = [
-                'Username' => $this->input->post('username'),
-                'Password' => $this->input->post('password1'),
-                'Nama' => $this->input->post('name'),
-                'JenisAkun' => 1,
-            ];
-
-            $data2 = [
-                'Username' => $this->input->post('username'),
-                'Email' => $this->input->post('email'),
-                'Alamat' => $this->input->post('alamat'),
-                'NoTelp' => $this->input->post('nohp'),
-                'TglLahir' => $this->input->post('tglLahir'),
-            ];
-            $this->userModel->insertUser($data1);
-            $this->userModel->insertCustomer($data2);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Your account has been created </div>');
-            redirect('Auth');
+            $img = $_FILES['image']['name'];
+            if (!$img) {
+                $data1 = [
+                    'Username' => $this->input->post('username'),
+                    'Password' => $this->input->post('password1'),
+                    'Nama' => $this->input->post('name'),
+                    'JenisAkun' => 1,
+                ];
+                $data2 = [
+                    'Username' => $this->input->post('username'),
+                    'Email' => $this->input->post('email'),
+                    'Alamat' => $this->input->post('alamat'),
+                    'NoTelp' => $this->input->post('nohp'),
+                    'TglLahir' => $this->input->post('tglLahir'),
+                    'image' => 'default_profilepicture.svg',
+                ];
+                $this->userModel->insertUser($data1);
+                $this->userModel->insertCustomer($data2);
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                Your account has been created </div>');
+                redirect('Auth');
+            } else {
+                $config['upload_path'] = './assets/img';
+                $config['allowed_types'] = 'jpg|png|gif|svg';
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('image')) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Registration Failed</div>');
+                    redirect('Auth');
+                } else {
+                    $img = $this->upload->data('file_name');
+                    $data1 = [
+                        'Username' => $this->input->post('username'),
+                        'Password' => $this->input->post('password1'),
+                        'Nama' => $this->input->post('name'),
+                        'JenisAkun' => 1,
+                    ];
+                    $data2 = [
+                        'Username' => $this->input->post('username'),
+                        'Email' => $this->input->post('email'),
+                        'Alamat' => $this->input->post('alamat'),
+                        'NoTelp' => $this->input->post('nohp'),
+                        'TglLahir' => $this->input->post('tglLahir'),
+                        'image' => $img,
+                    ];
+                    $this->userModel->insertUser($data1);
+                    $this->userModel->insertCustomer($data2);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+                    Your account has been created </div>');
+                    redirect('Auth');
+                }
+            }
         }
     }
 

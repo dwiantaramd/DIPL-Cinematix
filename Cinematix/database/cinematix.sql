@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2021 at 05:02 AM
+-- Generation Time: Jul 01, 2021 at 06:34 AM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,15 +33,18 @@ CREATE TABLE `customer` (
   `Alamat` varchar(40) NOT NULL,
   `NoTelp` varchar(40) NOT NULL,
   `TglLahir` date NOT NULL,
-  `NoRekening` varchar(15) NOT NULL
+  `NoRekening` varchar(15) NOT NULL,
+  `image` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`Username`, `Email`, `Alamat`, `NoTelp`, `TglLahir`, `NoRekening`) VALUES
-('raihanmuhith', 'raihan.muhith@gmail.', 'Jl. DEF No. 20 Bandung Jawa Barat', '1613131', '2021-06-02', '');
+INSERT INTO `customer` (`Username`, `Email`, `Alamat`, `NoTelp`, `TglLahir`, `NoRekening`, `image`) VALUES
+('akusabar', 'akusabar@gmail.com', 'condet', '000666', '2009-07-24', '', 'undraw_profile_2.svg'),
+('mahardika', 'mahardika@gmail.com', 'jl. madura sakti', '0000000', '2021-01-02', '', 'default_profilepicture.svg'),
+('raihanmuhith', 'raihan.muhith@gmail.', 'Jl. DEF No. 20 Bandung Jawa Barat', '1613131', '2021-06-02', '', 'undraw_profile.svg');
 
 -- --------------------------------------------------------
 
@@ -64,7 +67,8 @@ CREATE TABLE `film` (
 INSERT INTO `film` (`idFilm`, `JudulFilm`, `Durasi`, `Sinopsis`, `image`) VALUES
 ('FI001', 'Harry Potter and the Deathly Hallows Part 1', 102, 'ini Sinopsis Film Harry Potter', 'potter_11.jpg'),
 ('FI002', 'The Incredibles', 93, 'Ini Sinpsis Film The Incredibles', 'incredibles.jpg'),
-('FI003', 'The Avengers', 122, 'Ini Sinopsis Film The Avengers', 'the_avengers.jpg');
+('FI003', 'The Avengers', 122, 'Ini Sinopsis Film The Avengers', 'the_avengers.jpg'),
+('FI101', 'Hamil Muda', 120, 'dia ingin hamil muda', 'potter_11.jpg');
 
 -- --------------------------------------------------------
 
@@ -88,8 +92,11 @@ CREATE TABLE `jadwaltayang` (
 --
 
 INSERT INTO `jadwaltayang` (`idJadwalTayang`, `idFilm`, `idTeater`, `idStudio`, `WaktuMulai`, `WaktuSelesai`, `TglTayang`, `Harga`) VALUES
-('JD001', 'FI001', 'TE001', 'ST001', '7:00', '9:30', '2021-06-01', '25000'),
-('JD010', 'FI001', 'TE001', 'ST001', '7:00', '9:30', '2021-06-01', '25000');
+('JD002', 'FI003', 'TE003', 'ST008', '18:00', '23:00', '2021-06-24', '50500'),
+('JD010', 'FI001', 'TE001', 'ST001', '7:00', '9:30', '2021-06-01', '25000'),
+('JD011', 'FI003', 'TE001', 'ST002', '00:00', '23:00', '2021-06-17', '99999'),
+('JD100', 'FI002', 'TE003', 'ST008', '18:00', '23:00', '2021-08-26', '100000'),
+('JD111', 'FI003', 'TE003', 'ST007', '7:00', '8:00', '2021-06-02', '19000');
 
 -- --------------------------------------------------------
 
@@ -110,7 +117,8 @@ CREATE TABLE `kursi` (
 INSERT INTO `kursi` (`idKursi`, `NomorKursi`, `idStudio`) VALUES
 (2, 'A1', 'ST001'),
 (3, 'A2', 'ST001'),
-(4, 'A3', 'ST001');
+(4, 'A3', 'ST001'),
+(7, 'A11', 'ST007');
 
 -- --------------------------------------------------------
 
@@ -144,7 +152,12 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`idPemesanan`, `idJadwalTayang`, `User`, `TglTransaksi`, `Harga`, `idKursi`) VALUES
-(1, 'JD001', 'raihanmuhith', '2021-06-03', 25000, '2');
+(6, 'JD011', 'raihanmuhith', '2021-06-30', 25000, '3'),
+(7, 'JD100', 'akusabar', '2021-08-26', 45000, '4'),
+(21, 'JD010', 'raihanmuhith', '2021-06-17', 25000, '3'),
+(22, 'JD010', 'akusabar', '2021-06-01', 25000, '2'),
+(23, 'JD011', 'mahardika', '2021-06-17', 99999, '7'),
+(24, 'JD011', 'akusabar', '2021-06-17', 99999, '2');
 
 -- --------------------------------------------------------
 
@@ -215,7 +228,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`Username`, `Password`, `Nama`, `JenisAkun`) VALUES
 ('admin', 'admin', 'admin', '0'),
-('raihanmuhith', '12345678', 'muhammad raihan muhith', '1');
+('akusabar', '1234', 'akusabar', '1'),
+('mahardika', '1234', 'mohammad dwiantara', '1'),
+('raihanmuhith', '1234', 'muhammad raihan muhith', '1');
 
 --
 -- Indexes for dumped tables
@@ -283,13 +298,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `kursi`
 --
 ALTER TABLE `kursi`
-  MODIFY `idKursi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idKursi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `idPemesanan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPemesanan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
